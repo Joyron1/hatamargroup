@@ -1,0 +1,69 @@
+<div class="row no-gutters contact-section">
+    <div class="col-xl-4 col-md-6 contact-form">
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="fullName" name="fullName" [(ngModel)]="obj.fullName"
+                    placeholder="*שם מלא">
+            </div>
+            <div class="form-group">
+                <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="obj.phone" maxlength="10"
+                    placeholder="*טלפון נייד">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="obj.email"
+                    placeholder="*כתובת אימייל">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="how" name="how" [(ngModel)]="obj.how"
+                    placeholder="*איך הגעת אלינו?">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="message" rows="3" name="msg" [(ngModel)]="obj.msg"
+                    placeholder="*במה נוכל לעזור?"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary col-12" (click)="onSubmit()">שלח</button>
+            </div>
+
+        </form>
+        <div class="alerts">
+            <div class="my-1"><small>{{fullNameMSG}}</small></div>
+            <div class="my-1"><small>{{phoneMSG}}</small></div>
+            <div class="my-1"><small>{{emailMSG}}</small></div>
+            <div class="my-1"><small>{{msgMSG}}</small></div>
+
+            <div class="my-4" style="text-align: center;">
+                <div *ngIf="messageSentMSG">
+                    <div class="spinner-grow" style="width: 2rem; height: 2rem;" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <p class="loaderMSG mt-3"> {{messageSentMSG}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-8 col-md-6 contact-map" *ngIf="this.width > 768">
+        <google-map [zoom]="11" [center]="center" width="450" height=360>
+            <map-marker [position]="marker.position" [label]="marker.label" [title]="marker.title"
+                [options]="marker.options">
+            </map-marker>
+        </google-map>
+    </div>
+
+    <div class="col-6 contact-map" *ngIf="this.width > 541 && 769 > this.width">
+        <google-map [zoom]="11" [center]="center" width="300" height=360>
+            <map-marker [position]="marker.position" [label]="marker.label" [title]="marker.title"
+                [options]="marker.options">
+            </map-marker>
+        </google-map>
+    </div>
+
+    <div class="col-12 contact-map" *ngIf="541 > this.width">
+        <google-map [zoom]="11" [center]="center" width=250 height=250>
+            <map-marker [position]="marker.position" [label]="marker.label" [title]="marker.title"
+                [options]="marker.options">
+            </map-marker>
+        </google-map>
+    </div>
+</div>

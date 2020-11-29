@@ -1,1 +1,106 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+    font-family: 'Varela Round', sans-serif;
+}
+
+html, body { min-height: 100vh; scroll-behavior:smooth}
+
+// Loader css
+.loader {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader > img {
+    max-width: 200px;
+    transform: scale(1);
+    animation: pulse 1s infinite;
+}
+
+.loader.hidden {
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+}
+
+// .siteNotFound{
+//     position: fixed;
+//     z-index: 99;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: rgb(255, 237, 211);
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     align-items: center;
+//     .hatamar-logo{
+//         max-width: 200px;
+//         transform: scale(1);
+//         animation: pulse 1s infinite;
+//     }
+//     .social-media{
+//         .logo{
+//             margin: 20px;
+//             img{
+//                 width: 50px;
+//             }
+//             &:hover{
+//                 cursor: pointer;
+//                 transform: scale(1.2);
+//                 transition: transform 0.4s ease;
+//             }
+//         }
+//     }
+// }
+
+@media (max-width:420px){
+    // .siteNotFound{
+    //     padding: 5px;
+    //     h2{
+    //         font-size: 20px;
+    //     }
+    //     p{
+    //         font-size: 15px;
+    //     }
+    //     .social-media{
+    //         .logo{
+    //             img{
+    //                 width: 40px;
+    //             }
+    //         }
+    //     }
+    // }
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    
+    70% {
+        transform: scale(1.1);
+    }
+    
+    100% {
+        transform: scale(1);
+    }
+}

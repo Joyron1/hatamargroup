@@ -1,0 +1,13 @@
+.contact-section{
+    width: 100%;
+    padding: 10px 50px;
+    .contact-form{
+        .alerts{
+            text-align: right;
+        }
+    }
+    .contact-map{
+        display:flex;
+        justify-content: center;
+    }
+}

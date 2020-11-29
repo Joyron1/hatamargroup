@@ -1,0 +1,55 @@
+<div class="pt-5 pb-5 footer">
+    <img src="../../../assets/images/datepalmtree.png" id="tree-img" />
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-lg-4 col-md-4 col-sm-4 location">
+                <h1><b>צרו קשר</b></h1>
+                <div>
+                    <fa-icon [icon]="location" class="ml-2"></fa-icon>בקעת הירדן, ישראל
+                </div>
+                <div class="my-2">
+                    <fa-icon [icon]="call" class="ml-2"></fa-icon><a href="tel:0509175030">050-917-5030</a>
+                </div>
+                <div class="my-2">
+                    <fa-icon [icon]="envelope" class="ml-2"></fa-icon><a
+                        href="mailto:Yohayargaman12@gmail.com">Yohayargaman12@gmail.com</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 links">
+                <h1><b>קישורים</b></h1>
+                <ul>
+                    <li class="my-3">- <a href="">עמוד הבית</a></li>
+                    <li class="my-3">- <a routerLink="/products">לחנות שלנו</a></li>
+                    <li class="my-3">- <a href="#about-us">מי אנחנו</a></li>
+                    <li class="my-3">- <a routerLink="/contactus">דברו איתנו</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 about-company">
+                <h1><b>חפשו אותנו</b></h1>
+                <p>
+                    <a href={{this.facebook}} target="_blank"><img class="socialMedia"
+                            src="../../../assets/images/social/facebook.png"></a>
+                    <!-- <a href={{this.instagram}} target="_blank"><img class="socialMedia" target="_blank"
+                            src="../../../assets/images/instagram1.png"></a> -->
+                    <a href={{this.whatsapp}} target="_blank" title="whatapp"><img class="socialMedia"
+                            src="../../../assets/images/social/whatsapp.png"></a>
+                    <a href={{this.gmail}} title="email"><img class="socialMedia"
+                            src="../../../assets/images/social/gmail.png"></a>
+                </p>
+                <iframe
+                    src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fhatamar1&width=100&layout=button&action=like&size=small&share=true&height=65&appId"
+                    width="120" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                    allowTransparency="true" allow="encrypted-media"></iframe>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col copyright">
+                <p><small class="text-white-50"> Made with <fa-icon [icon]="heartIcon"></fa-icon> by <a target="_blank"
+                            class="text-white" href="http://jdevelopments.co.il">JDevelopments</a> ©
+                        2020.</small></p>
+            </div>
+        </div>
+    </div>
+</div>

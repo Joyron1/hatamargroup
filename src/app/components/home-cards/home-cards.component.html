@@ -1,0 +1,11 @@
+<div class="row no-gutters home-cards">
+    <div class="card" *ngFor="let card of homeCards">
+        <img src="{{card.img}}" class="card-image" width="100" />
+        <div class="card-header">
+            <b>{{card.title}}</b>
+        </div>
+        <div class="card-body">
+            <p>{{card.text}}</p>
+        </div>
+    </div>
+</div>

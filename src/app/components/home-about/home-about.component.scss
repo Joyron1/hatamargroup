@@ -1,0 +1,54 @@
+.about{
+    text-align: center;
+    position: relative;
+    padding: 40px 0px;
+    .about-text{
+        // max-width: 50%;
+        justify-content: center;
+        #header{
+            font-size: 70px;
+        }
+        #text{
+            padding: 30px;
+            font-size: 18px;
+            letter-spacing: 1px;
+            line-height: 35px;
+            font-weight: 600;       
+            // text-shadow:1px 0px 5px white;
+        }
+        .contact-btn{
+            margin: 30px 0px;
+            background-color: white;
+            color: black;
+            border-radius: 25px;
+            width: 150px;
+            &:hover{
+              cursor: pointer;
+              background-color: #af8454;
+              color: white;
+              border: 1px solid white;
+            }
+          }
+    }
+}
+
+@media (max-width:420px){
+    .about{
+        .about-text{
+            #header{
+                font-size: 60px;
+            }
+            #text{
+                padding: 5px;
+                font-size: 15px;
+                letter-spacing: 0px;
+            }
+            .contact-btn{
+                background-color: #af8454;
+                color: white;
+              }
+        }
+    }
+}
+
+

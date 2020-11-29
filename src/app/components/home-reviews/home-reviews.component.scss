@@ -1,0 +1,52 @@
+.carousel{
+    padding: 20px 0px;
+    width: 100%;
+    cursor: pointer;
+    .carousel-cell{
+        // width: 50%;
+        margin: 0px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            height: auto;
+            width:150px;
+         }
+         .card{
+            width: 250px;
+            min-height: 350px;
+            position: relative;
+            margin: 0 20px;
+            padding: 10px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.6);
+            .front{
+                padding: 10px 0;
+                .avatar {
+                    vertical-align: middle;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                }
+                .fas{
+                    font-size: 10px;
+                    margin: 0px 1px;
+                }
+                .review-text{
+                    padding: 5px;
+                    margin: 20px 0;
+                }
+                .review-name{
+                    font-size: 20px;
+                }
+                .review-city{
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+*:focus{
+    outline:none;
+} 

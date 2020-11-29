@@ -1,0 +1,34 @@
+<div class="home-opener">
+    <app-home-opener></app-home-opener>
+</div>
+
+
+
+<div class="home-info">
+
+
+    <div class="hatamar-banner">
+        <div class="row no-gutters">
+            <header><b>התמר</b> - הכי טעים - הכי ישראלי</header>
+        </div>
+    </div>
+
+    <div class="home-cards">
+        <div [@slideLeft]="isSlideLeft ? 'open' : 'closed'">
+            <app-home-cards></app-home-cards>
+        </div>
+    </div>
+
+    <div class="home-about" id="about-us">
+        <div>
+            <app-home-about></app-home-about>
+        </div>
+    </div>
+
+    <div class="home-logos">
+        <div>
+            <app-home-logos></app-home-logos>
+        </div>
+    </div>
+
+</div>

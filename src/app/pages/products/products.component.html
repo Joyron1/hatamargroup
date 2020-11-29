@@ -1,0 +1,92 @@
+<!-- UPPER TEXT -->
+<div class="row no-gutters upper">
+    <div class="col-12 upper-text">
+        <p class="header">התמרים שלנו </p>
+    </div>
+</div>
+
+<!-- PRICING -->
+<div class="row no-gutters pricing">
+    <div class="card" *ngFor="let card of pricingCards">
+        <img src="{{card.img}}" class="card-image" alt="תמר מג'הול" />
+        <div class="card-header">
+            <b>{{card.title}}</b>
+        </div>
+        <div class="card-body">
+            <p>{{card.priceTxt}}</p>
+            <small><button type="button" class="btn order-btn my-2 col-12" [routerLink]="[card.title]">ביצוע
+                    הזמנה</button></small>
+            <div *ngIf="card.id === 0">
+                <span class="info-btn col-12" data-toggle="modal" data-target="#exampleModal0"
+                    (click)="passId(card.id)"><u>מידע
+                        נוסף</u></span>
+            </div>
+            <div *ngIf="card.id === 1">
+                <span class="info-btn col-12" data-toggle="modal" data-target="#exampleModal1"
+                    (click)="passId(card.id)"><u>מידע
+                        נוסף</u></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- מג'הול עסיסי MODAL -->
+<div class="modal fade" id="exampleModal0" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h5 class="modal-title" id="exampleModalLabel">מג'הול עסיסי גדול</h5> -->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="row no-gutters" style="text-align: center;">
+                <div class="col-md-7 p-3">
+                    <h3>מג'הול עסיסי גדול</h3>
+                    <p>התמר העסיסי נקטף לפני התמר היבש ודורש הרבה עבודה ובחירה מוקפדת על מנת לקטוף את התמר המתאים
+                        ובדיוק לפני שהוא מתייבש, לאחר מיון קפדני ובקרה על איכות הפרי הוא נארז ועובר להקפאה לצורך שמירה
+                        על הגודל, הדבש והעסיסיות שלו.</p>
+                </div>
+                <div class="col-md-5" *ngIf="width > 500">
+                    <img src="../../../assets/images/עסיסי גדול.jpg" id="modal-img" alt="תמר מג'הול בונבון" />
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn modal-btn" data-dismiss="modal" [routerLink]="[cardId]">להזמנה</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- מג'הול יבש פרמיום MODAL -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <h5 class="modal-title" id="exampleModalLabel">מג'הול יבש פרמיום</h5> -->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="row no-gutters" style="text-align: center;">
+                <div class="col-md-7 p-3">
+                    <h3>מג'הול יבש פרמיום</h3>
+                    <p>התמר היבש בשונה מהתמר העסיסי מסיים את תהליך ההבשלה וההתייבשות שלו על העץ ומתייבש בצורה טבעית עד
+                        שנקטף.
+                        בגלל שהוא מסיים את תהליך ההבשלה והייבוש אינו דורש הקפאה ונשמר במקום יבש ומוצל.</p>
+                </div>
+                <div class="col-md-5" *ngIf="width > 500">
+                    <img src="../../../assets/images/יבש פרמיום.jpg" id="modal-img" alt="תמר מג'הול יבש" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn modal-btn" data-dismiss="modal" [routerLink]="[cardId]">להזמנה</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
+            </div>
+        </div>
+    </div>
+</div>

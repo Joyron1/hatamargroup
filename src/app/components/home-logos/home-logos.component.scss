@@ -1,0 +1,20 @@
+.home-logos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(247, 232, 205, 0.5);
+    .logo{
+        text-align: center;
+        margin: 0px 50px;
+        padding: 30px 5px;
+        .logo-image{
+            height: auto;
+            width: 50%;
+        }
+        .logo-title{
+            padding: 5px;
+            font-size: 20px;
+            background-color: transparent;
+        }
+    }
+}

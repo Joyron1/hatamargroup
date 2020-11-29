@@ -1,0 +1,29 @@
+main{
+    min-height: calc(100vh - 68px -311px);
+}
+
+// Back to Top btn css
+.back-to-top{
+    position: fixed;
+    bottom: 2%;
+    right: 2%;
+    z-index: 9999;
+    &:hover{
+        cursor: pointer;
+        animation-duration: 0.4s;
+        animation-name: changewidth;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+}
+
+
+@keyframes changewidth {
+    from {
+      transform: scale(1);
+    }
+  
+    to {
+      transform: scale(1.1);
+    }
+  }

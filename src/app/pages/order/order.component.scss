@@ -1,0 +1,54 @@
+.order-form{
+    text-align: right;
+    border-left: 3px solid rgba(0, 0, 0, 0.055);
+    flex-direction: column;
+    .header{
+        text-align: center;
+        color: #815b3e;
+        font-size: 50px;
+        font-weight: 600;
+        padding: 20px;
+    }
+    .text{
+        text-align: center;
+    }
+}
+
+.order-total{
+    text-align: right; 
+    height: 100%; 
+    display: flex;
+    padding: 30px 0px;
+    .card-title{
+        font-size: 40px;
+    }
+    .table{
+        font-size: 15px;
+    }
+}
+
+@media(max-width:1200px){
+    .order-form{
+        border-left: none;
+    }
+}
+
+@media (max-width:500px){
+    .order-form{
+        border-left: none;
+        .header{
+            font-size: 30px;
+        }
+    }
+    .order-total{
+        padding: 30px 0px;
+        width: 100%;
+        .order-img{
+            padding: 30px;
+            display: flex;;
+            justify-content: center;
+            max-width: 100%;
+            max-height: 400px;
+        }
+    }
+}

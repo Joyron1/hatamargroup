@@ -1,0 +1,164 @@
+<div class="row no-gutters d-flex justify-content-center">
+    <!-- HEADER -->
+
+
+    <!-- MAIN -->
+    <div class="col-12">
+        <div class="row no-gutters p-3">
+            <!-- FORM  -->
+            <div class="col-xl-6 col-md-12 d-flex justify-content-center order-form">
+                <div class="row no-gutters d-flex justify-content-center">
+                    <div class="col-12">
+                        <h1 class="header">בחרת ב{{this.dates[0].title}}</h1>
+                        <div class="text">אנא מלאו את הפרטים הבאים על מנת להשלים את תהליך ביצוע ההזמנה!<br>
+                            לאחר שההזמנה תיקלט, צוות התמר יצור עמכם קשר בהקדם.
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 d-flex justify-content-center my-5">
+                        <form (change)="validateForm()" #orderForm="ngForm">
+                            <div class="form-row">
+                                <div class="form-group col-md-4 col-sm-12">
+                                    <label for="firstName" id="firstName-label">*שם פרטי</label>
+                                    <input type="text" name="firstName" class="form-control" id="firstName"
+                                        [(ngModel)]="obj.firstName" required>
+                                </div>
+                                <div class="form-group col-md-4 col-sm-12">
+                                    <label for="lastName" id="lastName-label">*שם משפחה</label>
+                                    <input type="text" name="lastName" class="form-control" id="lastName"
+                                        [(ngModel)]="obj.lastName" required>
+                                </div>
+                                <div class="form-group col-md-4 col-sm-12">
+                                    <label for="phone" id="phone-label">*מספר נייד</label>
+                                    <input type="tel" name="phone" class="form-control" id="phone" minlength="10"
+                                        maxlength="10" [(ngModel)]="obj.phone" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-5 col-sm-12" *ngIf="width > 1028">
+                                    <label for="city" id="city-label">*עיר מגורים</label>
+                                    <select id="city" name="city" class="form-control" [(ngModel)]="obj.city" required>
+                                        <option *ngFor="let city of cities">{{city.name}}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-5 col-sm-12" *ngIf="1028 > width">
+                                    <label for="city" id="city-label">*עיר מגורים</label>
+                                    <input type="text" name="city" class="form-control" id="city" [(ngModel)]="obj.city"
+                                        required>
+                                </div>
+                                <div class="form-group col-md-7 col-sm-12">
+                                    <label for="address" id="address-label">*כתובת מלאה</label>
+                                    <input type="text" name="fullAddress" class="form-control" id="address"
+                                        placeholder="רחוב, בניין, דירה" [(ngModel)]="obj.fullAddress" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6 col-sm-12">
+                                    <label for="product">*מוצר</label>
+                                    <input type="text" name="product" class="form-control" id="product"
+                                        value="{{this.dates[0].title}}" disabled required>
+                                </div>
+                                <div class="form-group col-md-3 col-sm-12">
+                                    <label for="qnt" id="qnt-label">*כמות</label>
+                                    <input type="number" name="qnt" class="form-control" id="qnt" min="3"
+                                        [(ngModel)]="obj.qnt" (change)="calcPrice(obj.qnt)" required>
+                                </div>
+                                <div class="form-group col-md-3 col-sm-12">
+                                    <label for="totalP">*מחיר סופי</label>
+                                    <input type="text" name="totalP" class="form-control" id="totalP"
+                                        [value]="obj.totalPrice" disabled required>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <span><button type="submit" class="btn btn-success float-left"
+                                        (click)="onSubmit();">סיום
+                                        הזמנה</button></span>
+                                <div class="alertMsgs">
+                                    <div class="my-1"><small>{{firstNameMSG}}</small></div>
+                                    <div class="my-1"><small>{{lastNameMSG}}</small></div>
+                                    <div class="my-1"><small>{{phoneNumMSG}}</small></div>
+                                    <div class="my-1"><small>{{cityMSG}}</small></div>
+                                    <div class="my-1"><small>{{fullAddressMSG}}</small></div>
+                                    <div class="my-1"><small>{{qntMSG}}</small></div>
+                                    <div class="my-4">
+                                        <div *ngIf="orderSentMSG">
+                                            <div class="spinner-grow mr-5" style="width: 3rem; height: 3rem;"
+                                                role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </div>
+                                        <p class="loaderMSG mt-3"> {{orderSentMSG}}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <hr *ngIf="500>width">
+            </div>
+
+            <!-- sidabar -->
+            <div class="col-xl-6 col-md-12 d-flex justify-content-center">
+                <div class="row no-gutters order-total">
+
+                    <div class="col-md-12">
+                        <div class="card-body">
+                            <div class="card-title">פירוט ההזמנה</div>
+                            <div class="card-text">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>מוצר</th>
+                                            <th>כמות</th>
+                                            <th>עלות משלוח</th>
+                                            <th>מחיר סופי</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{this.dates[0].title}}</td>
+                                            <!-- QNT TD -->
+                                            <td>{{obj.qnt}}</td>
+                                            <!-- <td *ngIf="obj.qnt >= 6"> {{obj.qnt}} + 1 מתנה</td> -->
+                                            <!-- DELIVERY PRICE TD -->
+                                            <td *ngIf="obj.qnt >= 5">ללא עלות</td>
+                                            <td *ngIf="5 > obj.qnt && obj.qnt >=3">20
+                                                ₪</td>
+                                            <td *ngIf="3 > obj.qnt"><small>....</small></td>
+                                            <!-- PRICE TD -->
+                                            <td>{{lastPrice}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="card-text">
+                                <small class="text-muted">* מינימום כמות למשלוח הינה 3 קילו תמרים.</small> <br>
+                                <small class="text-muted">* עלות משלוח 20₪ | משלוח <b>חינם</b> בהזמנת 5 קילו תמרים
+                                    ומעלה.</small> <br>
+                                <small class="text-muted">* ניתן לשלב את שני סוגי התמרים בהזמנה טלפונית.</small>
+                                <br>
+                                <small class="text-muted">* הגעת המשלוח הינה עד 10 ימי עסקים מיום ביצוע ההזמנה.</small>
+                                <br>
+                                <small class="text-muted">* <b>תשלום יבוצע ביום הגעת המשלוח בביט או במזומן.</b></small>
+                                <br>
+                                <!-- <small class="text-muted">* <b>מבצע קילו מתנה בקנייה מעל 6 קילו בתוקף למזמינים דרך האתר
+                                        עד 1.12.20.</b></small>
+                                <br> -->
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-5 order-img" *ngIf="this.width > 500">
+                        <img src="{{this.dates[0].img}}" class="card-img" alt="התמר משק חקלאי בבקעת הירדן">
+                    </div>
+                    <!-- <div class="col-md-5 order-img" *ngIf="500 > this.width">
+                        <img src="{{this.dates[0].img}}" class="card-img" alt="מג'הול עסיסי">
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
