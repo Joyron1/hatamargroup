@@ -37,7 +37,7 @@ import { HomeLogosComponent } from './components/home-logos/home-logos.component
     FooterComponent,
     NavbarComponent,
     ContactusFormComponent,
-    HomeLogosComponent
+    HomeLogosComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ApiService } from 'src/app/services/api.service';
+import { faEnvelope, faHeart, faPhone, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+declare var $: any;
+
 
 @Component({
   selector: 'app-products',
@@ -8,9 +11,12 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
+  call = faPhone;
+  close = faWindowClose;
+  whatsapp = 'https://api.whatsapp.com/send?phone=972509175030&text=%D7%90%D7%94%D7%9C%D7%9F%20,%20%20%D7%90%D7%A0%D7%99%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%A6%D7%A2%20%D7%94%D7%96%D7%9E%D7%A0%D7%94%20%D7%A9%D7%9C%20%D7%94%D7%AA%D7%9E%D7%A8%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9B%D7%9D';
 
   public pricingCards;
-  public cardId: number;
+  public cardTitle: number;
   public width = window.innerWidth;
 
   constructor(public api: ApiService, private title: Title, private meta: Meta) {
@@ -20,10 +26,10 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.title.setTitle('התמר - התמרים שלנו');
+    this.title.setTitle("תמר מג'הול | התמר | תמרים מבקעת הירדן");
     this.meta.addTags([
-      { name: 'keywords', content: 'תמר מגהול, תמר עסיסי, מגהול בונבון, מגהול יבש, התמרים שלנו, משלוחים, משלוחים עד הבית, איקומרס,ווקומרס,חנות,החנות שלנו, תמרים טעימים, תמרים איכותיים' },
-      { name: 'description', content: 'היכנסו לחנות שלנו וביחרו את התמר האהוב עליכם. הטעמים לא מהעולם הזה והאיכות גבוהה! משלוחים עד הבית, קנו עוד היום!' },
+      { name: 'keywords', content: "תמר מג'הול, תמר עסיסי, מג'הול בונבון, מגהול יבש, התמרים שלנו, משלוחים, משלוחים עד הבית,ווקומרס,תמר,חקלאי,החקלאי,משק חקלאי,חקלאות,בקעת הירדן,החנות שלנו,תמרים" },
+      { name: 'description', content: "היכנסו לחנות שלנו וביחרו בין תמר מג'הול עסיסי לבין תמר מג'הול יבש פרמיום. הטעמים לא מהעולם הזה והאיכות גבוהה! משלוחים עד הבית, קנו עוד היום!" },
       { name: 'robots', content: 'index, follow' },
     ]);
 
@@ -31,11 +37,15 @@ export class ProductsComponent implements OnInit {
       top: 0,
       behavior: "smooth"
     })
+
+    setTimeout(function () {
+      $("#both-products-modal").modal('show');
+    }, 2500);
   }
 
-  passId = (cardId) => {
-    console.log(cardId);
-    this.cardId = cardId;
+  passTitle = (cardTitle) => {
+    console.log(cardTitle);
+    this.cardTitle = cardTitle;
   }
 
 }
