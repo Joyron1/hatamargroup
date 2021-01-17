@@ -7,9 +7,9 @@ import { ProductsComponent } from './pages/products/products.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
-  { path: 'תמרים', component: ProductsComponent },
-  { path: 'תמרים/:title', component: OrderComponent },
-  { path: 'יצירת-קשר', component: ContactusComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'products/:title', component: OrderComponent },
+  { path: 'contact-us', component: ContactusComponent },
 ];
 
 @NgModule({

@@ -20,10 +20,10 @@ export class ContactusComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.title.setTitle('התמר - צרו איתנו קשר ');
+    this.title.setTitle('תמרים מבקעת הירדן | התמר | צרו איתנו קשר ');
     this.meta.addTags([
-      { name: 'keywords', content: 'יצירת קשר,דברו איתנו,השארת פרטים,שאלות ותשובות,איקומרס,ווקומרס,התמר,תמר,תמרים,התמרים,משלוחים,משלוחי תמרים,משק חקלאי,בקעת הירדן' },
-      { name: 'description', content: 'צרו איתנו קשר עוד היום ואחד הנציגים שלנו ישוב אליכם בהקדם. תמרים איכותיים במשלוחים מהמשק עד אליכם לפתח הדלת!' },
+      { name: 'keywords', content: 'תמרים מבקעת הירדן' },
+      { name: 'description', content: 'צרו איתנו קשר עוד היום ואחד הנציגים שלנו ישוב אליכם בהקדם. תמרים מבקעת הירדן במשלוחים מהמשק עד אליכם לפתח הדלת!' },
       { name: 'robots', content: 'index, follow' },
     ]);
 

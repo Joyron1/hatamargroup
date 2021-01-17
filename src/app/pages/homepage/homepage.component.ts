@@ -38,7 +38,7 @@ export class HomepageComponent implements OnInit {
 
     this.title.setTitle("תמר מג'הול | התמר | תמרים מבקעת הירדן");
     this.meta.addTags([
-      { name: 'keywords', content: "תמר,תמרים,תמר מג'הול,תמרים מג'הול,תמר קלוריות,תמר ערך תזונתי,בקעת הירדן,חקלאי,חקלאים,חקלאות,תמרים בקעת הירדן" },
+      { name: 'keywords', content: "תמר מג'הול" },
       { name: 'description', content: "התמר הוקם על ידי שני חברים בנים למשק חקלאי ומגדלי תמרים מבקעת הירדן, במטרה להביא את התמרים המובחרים ביותר לצרכן הישראלי במשלוחים. תמר מג'הול הנבחר בקפידה ומגיעים אליכם ברמה הגבוהה ביותר!" },
       { name: 'robots', content: 'index, follow' },
     ]);

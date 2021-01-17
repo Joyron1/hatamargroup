@@ -13717,6 +13717,7 @@ export class OrderComponent implements OnInit {
     ]
 
   nameWithNum: boolean;
+  orderSent: boolean;
 
   constructor(public route: ActivatedRoute, public api: ApiService, private title: Title, private meta: Meta) {
     // GET ID BY ROUTE .replace(/\s+/g, '-')
@@ -13728,10 +13729,10 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.title.setTitle(`התמר - ביצוע הזמנת ${this.name}`);
+    this.title.setTitle(`תמרים איכותיים | התמר | הזמנת ${this.title}`);
     this.meta.addTags([
-      { name: 'keywords', content: 'חנות תמרים, משק חקלאי,חנות,ווקומרס,איקומרס,משלוחים,עגלת קניות,רכישה,תמרים,תמר,התמר,תמר איכותי,תמרים עסיסיים' },
-      { name: 'description', content: 'בצעו הזמנה של התמרים שלנו עוד היום ותהנו מתמר מגהול טעים ואיכותי שלא ראיתם כמותו, במשלוח עד פתח הדלת שלכם' },
+      { name: 'keywords', content: 'תמרים איכותיים ' },
+      { name: 'description', content: "בצעו הזמנה של תמרים איכותיים עוד היום ותהנו מתמר מג'הול טעים ואיכותי שלא ראיתם כמותו, במשלוח עד פתח הדלת שלכם" },
       { name: 'robots', content: 'index, follow' },
     ]);
 
@@ -13750,10 +13751,10 @@ export class OrderComponent implements OnInit {
     this.obj.totalPrice = this.lastPrice;
     if (this.obj.firstName && this.obj.lastName && this.obj.phone && this.obj.city && this.obj.fullAddress && this.obj.product && this.obj.qnt && this.obj.totalPrice) {
       if ((this.obj.firstName.length >= 2) && (this.obj.lastName.length >= 2) && (this.obj.phone.length === 10) && (this.obj.fullAddress.length > 5) && (this.obj.qnt >= 3)) {
-
         console.log("order obj:", this.obj);
         this.api.insertOrder(this.obj);
         console.log("ORDER IS FINE");
+        this.orderSent = true;
         this.orderSentMSG = " ההזמנה נקלטה, הנך מועבר לעמוד הבית! "
         setInterval(function () { window.location.pathname = "/"; }, 2000);
       }

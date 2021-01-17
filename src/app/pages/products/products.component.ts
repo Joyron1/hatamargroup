@@ -28,7 +28,7 @@ export class ProductsComponent implements OnInit {
 
     this.title.setTitle("תמר מג'הול | התמר | תמרים מבקעת הירדן");
     this.meta.addTags([
-      { name: 'keywords', content: "תמר מג'הול, תמר עסיסי, מג'הול בונבון, מגהול יבש, התמרים שלנו, משלוחים, משלוחים עד הבית,ווקומרס,תמר,חקלאי,החקלאי,משק חקלאי,חקלאות,בקעת הירדן,החנות שלנו,תמרים" },
+      { name: 'keywords', content: "תמר מג'הול" },
       { name: 'description', content: "היכנסו לחנות שלנו וביחרו בין תמר מג'הול עסיסי לבין תמר מג'הול יבש פרמיום. הטעמים לא מהעולם הזה והאיכות גבוהה! משלוחים עד הבית, קנו עוד היום!" },
       { name: 'robots', content: 'index, follow' },
     ]);
@@ -40,7 +40,7 @@ export class ProductsComponent implements OnInit {
 
     setTimeout(function () {
       $("#both-products-modal").modal('show');
-    }, 2500);
+    }, 1000);
   }
 
   passTitle = (cardTitle) => {
