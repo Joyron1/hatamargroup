@@ -1,39 +1,44 @@
-<!-- UPPER TEXT -->
-<div class="row no-gutters upper">
-    <div class="col-12 upper-text">
-        <p class="header">התמרים שלנו </p>
-    </div>
-</div>
+<div class="main-container">
 
-<!-- CARDS -->
-<div class="row no-gutters pricing">
-    <div class="card" *ngFor="let card of pricingCards">
-        <img src="{{card.img}}" class="card-image" alt="תמר מג'הול" />
-        <div class="card-header">
-            <b>{{card.title}}</b>
-        </div>
-        <div class="card-body">
-            <p>{{card.priceTxt}}</p>
-            <small><button type="button" class="btn order-btn my-2 col-12" [routerLink]="[card.title]">ביצוע
-                    הזמנה</button></small>
-            <div *ngIf="card.id === 0">
-                <span class="info-btn col-12" data-toggle="modal" data-target="#exampleModal0"
-                    (click)="passTitle(card.title)"><u>מידע
-                        נוסף</u></span>
-            </div>
-            <div *ngIf="card.id === 1">
-                <span class="info-btn col-12" data-toggle="modal" data-target="#exampleModal1"
-                    (click)="passTitle(card.title)"><u>מידע
-                        נוסף</u></span>
-            </div>
+    <!-- UPPER TEXT -->
+    <div class="row no-gutters upper">
+        <div class="col-xl-12">
+            <div class="header shadow">התמרים שלנו</div>
         </div>
     </div>
-</div>
 
+    <!-- CARDS -->
+    <div class="row no-gutters pricing">
+        <div class="card" *ngFor="let card of products">
+            <img src="{{card.img}}" class="card-image" alt="תמר מג'הול" />
+            <div class="card-header">
+                <b>{{card.title}}</b>
+            </div>
+            <div class="card-body">
+                <p>{{card.priceTxt}}<br>
+                    <small>{{card.delivery}}</small>
+                </p>
+
+                <small><button type="button" class="btn order-btn my-2 col-12" routerLink="/order">ביצוע
+                        הזמנה</button></small>
+                <div *ngIf="card.id === 0">
+                    <span class="info-btn col-12" data-toggle="modal" data-target="#exampleModal0"
+                        (click)="passTitle(card.title)"><u>מידע
+                            נוסף</u></span>
+                </div>
+                <div *ngIf="card.id === 1">
+                    <span class="info-btn col-12" data-toggle="modal" data-target="#exampleModal1"
+                        (click)="passTitle(card.title)"><u>מידע
+                            נוסף</u></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- BOTH PRODUCTS MODAL -->
 <!-- COMPUTER - IPAD PRO -->
-<div class="modal fade" id="both-products-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+<!-- <div class="modal fade" id="both-products-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
     *ngIf="width > 770">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-3 text-light" style="background-color: rgb(197, 112, 0); text-align: center;">
@@ -58,10 +63,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- IPAD - MOBILE -->
-<div class="modal fade" id="both-products-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+<!-- <div class="modal fade" id="both-products-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
     *ngIf="770 > width">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content p-3 text-light" style="background-color: rgb(197, 112, 0); text-align: center;">
@@ -89,7 +94,7 @@
 
         </div>
     </div>
-</div>
+</div> -->
 
 
 <!-- TWO MODAL THAT POPS SEPERATLY IF THERE IS A CLICK ON "מידע נוסף" -->
@@ -117,8 +122,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn modal-btn" data-dismiss="modal"
-                    [routerLink]="[cardTitle]">להזמנה</button>
+                <button type="button" class="btn modal-btn" data-dismiss="modal" routerLink="/order">להזמנה</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
             </div>
         </div>
@@ -147,8 +151,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn modal-btn" data-dismiss="modal"
-                    [routerLink]="[cardTitle]">להזמנה</button>
+                <button type="button" class="btn modal-btn" data-dismiss="modal" routerLink="/order">להזמנה</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור</button>
             </div>
         </div>

@@ -3,9 +3,11 @@ export class Order {
     firstName: string;
     lastName: string;
     phone: string;
+    email: string;
     city: string;
     fullAddress: string;
-    product: string;
-    qnt: number;
+    dryDate: number;
+    juicyDate: number;
+    totalQnt: number;
     totalPrice: number;
 }

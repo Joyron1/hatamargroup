@@ -14,13 +14,17 @@ import { HomeOpenerComponent } from './components/home-opener/home-opener.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ContactusFormComponent } from './components/contactus-form/contactus-form.component';
+import { HomeLogosComponent } from './components/home-logos/home-logos.component';
+import { AboutComponent } from './pages/about/about.component';
 
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GoogleMapsModule } from '@angular/google-maps'
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HomeLogosComponent } from './components/home-logos/home-logos.component';
+import { SwiperModule } from 'swiper/angular';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+
 
 
 @NgModule({
@@ -38,6 +42,8 @@ import { HomeLogosComponent } from './components/home-logos/home-logos.component
     NavbarComponent,
     ContactusFormComponent,
     HomeLogosComponent,
+    AboutComponent,
+    PrivacyPolicyComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +53,7 @@ import { HomeLogosComponent } from './components/home-logos/home-logos.component
     HttpClientModule,
     GoogleMapsModule,
     FontAwesomeModule,
+    SwiperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

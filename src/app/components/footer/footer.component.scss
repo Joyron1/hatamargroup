@@ -1,5 +1,5 @@
 .footer{
-    text-align: right;
+    text-align: center;
     background-color: #a78860;
     color:white;
     border-top: 2px solid rgba(0, 0, 0, 0.589);
@@ -12,7 +12,10 @@
       width: auto;
       height: 100%;
     }
-    h1{ font-size: 25px;}
+    h1{ 
+      font-size: 25px;
+      letter-spacing: 2px;
+    }
     .location{
        a, fa-icon{
         color:white;
@@ -50,9 +53,11 @@
         }
       } 
       .copyright {
+        margin-top: 10px;
         direction: ltr;
         p {
           font-size: 15px;
+         padding-top: 10px;
           border-top:1px solid rgba(255,255,255,.1);
           fa-icon{
             margin: 0px 3px 0px 3px;          
@@ -70,7 +75,7 @@
 }
   
 
-@media (max-width: 575.98px){
+@media screen and (max-width: 600px){
   .footer{
     text-align: center;
     .links{

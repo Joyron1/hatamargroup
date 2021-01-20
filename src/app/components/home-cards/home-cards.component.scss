@@ -8,11 +8,13 @@
         border-radius: 20px;
         text-align: center;
         align-items: center;
-        max-width: 300px; 
-        margin: 30px 30px;
-        padding: 30px 5px;
+        max-width: 250px; 
+        height: auto;
+        margin: 20px 20px;
+        padding: 20px 5px;
         .card-image{
-            height: 100px;
+            width: 50px;
+            height: auto;
         }
         .card-header{
             font-size: 30px;

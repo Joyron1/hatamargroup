@@ -1,27 +1,27 @@
 <div class="row no-gutters contact-section">
-    <div class="col-xl-4 col-md-6 contact-form">
-        <form>
-            <div class="form-group">
+    <div class="col- contact-form">
+        <form class="row">
+            <div class="form-group col-md-6">
                 <input type="text" class="form-control" id="fullName" name="fullName" [(ngModel)]="obj.fullName"
                     placeholder="*שם מלא">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
                 <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="obj.phone" maxlength="10"
                     placeholder="*טלפון נייד">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
                 <input type="email" class="form-control" id="email" name="email" [(ngModel)]="obj.email"
                     placeholder="*כתובת אימייל">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-6">
                 <input type="text" class="form-control" id="how" name="how" [(ngModel)]="obj.how"
                     placeholder="*איך הגעת אלינו?">
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-12">
                 <textarea class="form-control" id="message" rows="3" name="msg" [(ngModel)]="obj.msg"
                     placeholder="*במה נוכל לעזור?"></textarea>
             </div>
-            <div class="form-group">
+            <div class="form-group col-md-12" *ngIf="!msgSent">
                 <button type="submit" class="btn btn-primary col-12" (click)="onSubmit()">שלח</button>
             </div>
 
@@ -42,28 +42,67 @@
             </div>
         </div>
     </div>
+</div>
 
-    <div class="col-xl-8 col-md-6 contact-map" *ngIf="this.width > 768">
-        <google-map [zoom]="11" [center]="center" width="450" height=360>
+<div class="row no-gutters social-media">
+    <!-- CALL -->
+    <!-- Button trigger modal -->
+    <div class="logo" data-toggle="modal" data-target="#exampleModal">
+        <img src="../../../assets/images/social/call.png" class="logo-image" />
+    </div>
+    <!-- GMAIL -->
+    <div class="logo">
+        <a href={{this.gmail}} title="email"><img class="logo-image" src="../../../assets/images/social/gmail.png"></a>
+    </div>
+    <!-- WHATSAPP -->
+    <!-- <div class="logo">
+        <a href={{this.whatsapp}} target="_blank" title="whatapp"><img class="logo-image"
+                src="../../../assets/images/social/whatsapp.png"></a>
+    </div> -->
+    <!-- FACEBOOK -->
+    <div class="logo">
+        <a href={{this.facebook}} target="_blank"><img class="logo-image"
+                src="../../../assets/images/social/facebook.png"></a>
+    </div>
+</div>
+
+<div class="row no-gutters">
+    <div class="col-12 map">
+        <google-map [zoom]="11" [center]="center" [width]="width" height=250>
             <map-marker [position]="marker.position" [label]="marker.label" [title]="marker.title"
                 [options]="marker.options">
             </map-marker>
         </google-map>
     </div>
+</div>
 
-    <div class="col-6 contact-map" *ngIf="this.width > 541 && 769 > this.width">
-        <google-map [zoom]="11" [center]="center" width="300" height=360>
-            <map-marker [position]="marker.position" [label]="marker.label" [title]="marker.title"
-                [options]="marker.options">
-            </map-marker>
-        </google-map>
-    </div>
 
-    <div class="col-12 contact-map" *ngIf="541 > this.width">
-        <google-map [zoom]="11" [center]="center" width=250 height=250>
-            <map-marker [position]="marker.position" [label]="marker.label" [title]="marker.title"
-                [options]="marker.options">
-            </map-marker>
-        </google-map>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="text-align: center; color: black;">
+                <p>
+                    <fa-icon [icon]="call" class="ml-2"></fa-icon><b>יוחאי: </b>
+                    <a href="tel:0507390422">050-739-0422</a>
+                </p>
+                <p>
+                    <fa-icon [icon]="call" class="ml-2"></fa-icon><b>אופיר: </b>
+                    <a href="tel:0503727774">050-372-7774</a>
+                </p>
+                <p>
+                    <fa-icon [icon]="call" class="ml-2"></fa-icon><b>עידן: </b>
+                    <a href="tel:0509175030">050-917-5030</a>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">סגור חלון</button>
+            </div>
+        </div>
     </div>
 </div>

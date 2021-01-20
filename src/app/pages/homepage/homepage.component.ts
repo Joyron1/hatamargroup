@@ -50,7 +50,7 @@ export class HomepageComponent implements OnInit {
 
     window.addEventListener('scroll', () => {
       let scrollY = window.scrollY;
-      console.log("scrollY:", scrollY)
+      // console.log("scrollY:", scrollY)
 
       if (this.isSlideLeft === false) {
         if (scrollY >= 100) {
@@ -59,6 +59,14 @@ export class HomepageComponent implements OnInit {
         }
       }
     })
+
+
+  }
+
+  scrollDownArrow = () => {
+    let elm = document.getElementById("scroll-here");
+    console.log(elm);
+    elm.scrollIntoView();
   }
 
 }

@@ -8,9 +8,10 @@ import { Order } from '../Models/order.model';
 })
 export class ApiService {
 
-  public pricingCards = [
-    { id: 0, title: "מג'הול עסיסי גדול", priceTxt: "מארז 1 קילו / 40₪", price: 40, delivery: "המחיר כולל משלוח", img: "../../../assets/images/עסיסי גדול.png" },
-    { id: 1, title: "מג'הול יבש פרמיום", priceTxt: "מארז 1 קילו / 30₪", price: 30, delivery: "המחיר כולל משלוח", img: "../../../assets/images/יבש פרמיום.png" },
+  public products = [
+    { id: 0, title: "מג'הול עסיסי גדול", priceTxt: "מארז 1 קילו / 40₪", price: 40, delivery: "לא כולל משלוח", img: "../../../assets/images/עסיסי גדול.png" },
+    { id: 1, title: "מג'הול יבש פרמיום", priceTxt: "מארז 1 קילו / 30₪", price: 30, delivery: "לא כולל משלוח", img: "../../../assets/images/יבש פרמיום.png" },
+    // { id: 2, title: "חבילת התמר", priceTxt: "מארז 5 קילו לבחירה", price: "", delivery: "המחיר כולל משלוח", img: "../../../assets/images/יבש פרמיום.png" },
   ]
   public homeCards = [
     { id: 0, title: "שירות", text: "אנחנו בצוות 'התמר' מאמינים בתודעת שירות גבוהה, תקשורת תמידית ויחס אישי מול הלקוח ואספקה מהירה של המוצר.", img: "../../../assets/images/homecards/customer.png" },
@@ -28,78 +29,72 @@ export class ApiService {
     { id: 1, name: "natural", title: "מג'הול 100% טבעי", img: "../../../assets/images/logos-banner/natural.png" },
     { id: 2, name: "delivery", title: "מערך משלוחים ארצי", img: "../../../assets/images/logos-banner/delivery-logo.png" },
   ]
-  // public reviewsCards = [
-  //   {
-  //     id: 0,
-  //     name: "נחמן ביאליק",
-  //     stars: 5,
-  //     review: "תמרים טעימים במיוחד! התמר עצמו עסיסי וגדול. צוות התמר נעים וזמין תמיד !",
-  //     img: "../../../assets/images/reviews/img_avatar.png"
-  //   },
-  //   {
-  //     id: 1,
-  //     name: "יהודה יהודה",
-  //     stars: 4,
-  //     review: "תמרים טעימים במיוחד! התמר עצמו עסיסי וגדול. צוות התמר נעים וזמין תמיד !",
-  //     img: "../../../assets/images/revies/img_avatar.png"
-  //   },
-  //   {
-  //     id: 2,
-  //     name: "דובי בובי",
-  //     stars: 5,
-  //     review: "תמרים טעימים במיוחד! התמר עצמו עסיסי וגדול. צוות התמר נעים וזמין תמיד !",
-  //     img: "../../../assets/images/revies/img_avatar.png"
-  //   },
-  //   {
-  //     id: 3,
-  //     name: "אחשוורוש",
-  //     stars: 5,
-  //     review: "תמרים טעימים במיוחד! התמר עצמו עסיסי וגדול. צוות התמר נעים וזמין תמיד !",
-  //     img: "../../../assets/images/revies/img_avatar.png"
-  //   },
-  //   {
-  //     id: 4,
-  //     name: "אילנית",
-  //     stars: 5,
-  //     review: "תמרים טעימים במיוחד! התמר עצמו עסיסי וגדול. צוות התמר נעים וזמין תמיד !",
-  //     img: "../../../assets/images/revies/img_avatar.png"
-  //   },
-  //   {
-  //     id: 5,
-  //     name: "אילנית",
-  //     stars: 5,
-  //     review: "תמרים טעימים במיוחד! התמר עצמו עסיסי וגדול. צוות התמר נעים וזמין תמיד !",
-  //     img: "../../../assets/images/revies/img_avatar.png"
-  //   },
-  //   {
-  //     id: 6,
-  //     name: "אילנית",
-  //     stars: 5,
-  //     review: "תמרים טעימים במיוחד! התמר עצמו עסיסי וגדול. צוות התמר נעים וזמין תמיד !",
-  //     img: "../../../assets/images/revies/img_avatar.png"
-  //   },
-  //   {
-  //     id: 7,
-  //     name: "אילנית",
-  //     stars: 5,
-  //     review: "תמרים טעימים במיוחד! התמר עצמו עסיסי וגדול. צוות התמר נעים וזמין תמיד !",
-  //     img: "../../../assets/images/revies/img_avatar.png"
-  //   },
-  //   {
-  //     id: 8,
-  //     name: "אילנית",
-  //     stars: 5,
-  //     review: "תמרים טעימים במיוחד! התמר עצמו עסיסי וגדול. צוות התמר נעים וזמין תמיד !",
-  //     img: "../../../assets/images/revies/img_avatar.png"
-  //   },
-  //   {
-  //     id: 9,
-  //     name: "אילנית",
-  //     stars: 5,
-  //     review: "תמרים טעימים במיוחד! התמר עצמו עסיסי וגדול. צוות התמר נעים וזמין תמיד !",
-  //     img: "../../../assets/images/revies/img_avatar.png"
-  //   },
-  // ]
+  public reviewsCards = [
+    {
+      id: 0,
+      name: "ירדן",
+      city: "תל אביב",
+      stars: 5,
+      review: "הזמנתי תמר מג'הול עסיסי והם היו פשוט מעולים! היחס של צוות התמר מדהים!",
+      img: "../../../assets/images/avatars/img_avatar2.png"
+    },
+    {
+      id: 1,
+      name: "ג'וי רון",
+      city: "קרית ביאליק",
+      stars: 5,
+      review: "הזמנתי 5 קילו מהמג'הול העסיסי. התאהבתי! התמר הכי טעים שאכלתי בפער, בטוח שאזמין שוב!",
+      img: "../../../assets/images/avatars/img_avatar.png"
+    },
+    {
+      id: 2,
+      name: "עדן דואניאס",
+      city: "בת ים",
+      stars: 5,
+      review: "תמרים נהדרים וטעימים מאוד!!! שירות אישי! פשוט כייף לקנות אין ספק שאחזור לקנות מהתמר!",
+      img: "../../../assets/images/avatars/avatar5.png"
+    },
+    {
+      id: 3,
+      name: "טובה",
+      city: "הוד השרון",
+      stars: 5,
+      review: "טעמנו מהתמרים שרכשנו.. הם פשוט- מ ע ו ל י ם! שמחים שהכרנו אתכם!",
+      img: "../../../assets/images/avatars/img_avatar2.png"
+    },
+    {
+      id: 4,
+      name: "משה",
+      city: "נשר",
+      stars: 5,
+      review: "רק לציין שהתמרים שלכם פשוט להיט! רואים שזה טרי ולא שכב אצלכם שנה בהקפאה. מזמין כבר מעכשיו עוד 5 קילו!",
+      img: "../../../assets/images/avatars/img_avatar.png"
+    },
+    {
+      id: 5,
+      name: "חווה שמואלי",
+      city: "אשקלון",
+      stars: 5,
+      review: "תמרים טעימים במיוחד! הגיע אליי יוחאי, בחור צעיר ונחמד, להביא לי את ההזמנה עד הבית! אין ספק שאזמין עוד!!",
+      img: "../../../assets/images/avatars/img_avatar2.png"
+    },
+    {
+      id: 6,
+      name: "סיון שלום",
+      city: "הרצליה",
+      stars: 5,
+      review: "אין דברים כאלה, תמרים ממש ממש טעימים וגדולים! אשמח להזמין שוב!",
+      img: "../../../assets/images/avatars/avatar5.png"
+    },
+    {
+      id: 7,
+      name: "איתן בן חיים",
+      city: "קרית חיים",
+      stars: 5,
+      review: "הזמנתי 5 קילו מג'הול יבש פרמיום, תמר טעים ואיכותי, תודה רבה על השירות האדיב! משלוח מהיר עד הבית!",
+      img: "../../../assets/images/avatars/img_avatar.png"
+    },
+  ]
 
   contactUrl = 'https://hook.integromat.com/g4ptot62u99qc5wzsdxmeu62urb2yilf/'
   orderUrl = 'https://hook.integromat.com/ixtauhxobyacw2ysipvxx05onzolyesi/';

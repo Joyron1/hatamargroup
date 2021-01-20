@@ -17,6 +17,20 @@ main{
     }
 }
 
+.whatsapp{
+  z-index: 9999;
+  position: fixed;
+  bottom: 2%;
+  left: 2%;
+  &:hover{
+      cursor: pointer;
+      animation-duration: 0.5s;
+      animation-name: changewidth;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+  }
+}
+
 
 @keyframes changewidth {
     from {

@@ -1,69 +1,11 @@
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" style="text-align: center; color: black;">
-                <p>
-                    <fa-icon [icon]="call" class="ml-2"></fa-icon><b>יוחאי: </b>
-                    <a href="tel:0507390422">050-739-0422</a>
-                </p>
-                <p>
-                    <fa-icon [icon]="call" class="ml-2"></fa-icon><b>אופיר: </b>
-                    <a href="tel:0503727774">050-372-7774</a>
-                </p>
-                <p>
-                    <fa-icon [icon]="call" class="ml-2"></fa-icon><b>עידן: </b>
-                    <a href="tel:0509175030">050-917-5030</a>
-                </p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="row no-gutters contact">
 
     <!-- HEADER - TEXT - MAP - FORM  -->
-    <div class="col-xl-7">
+    <div class="col-xl-12">
         <div class="header shadow">רוצים לדעת עוד על התמר הכי טעים בארץ? </div>
         <div class="text pt-4"> צוות התמר כאן בשבילכם! <br>שלחו לנו הודעה כבר עכשיו והצוות שלנו יחזור אליכם בזמן הקרוב!
         </div>
         <app-contactus-form></app-contactus-form>
-        <!-- <hr /> -->
-        <div class="row no-gutters social-media">
-            <!-- CALL -->
-            <!-- Button trigger modal -->
-            <div class="logo" data-toggle="modal" data-target="#exampleModal">
-                <img src="../../../assets/images/social/call.png" class="logo-image" />
-            </div>
-            <!-- GMAIL -->
-            <div class="logo">
-                <a href={{this.gmail}} title="email"><img class="logo-image"
-                        src="../../../assets/images/social/gmail.png"></a>
-            </div>
-            <!-- WHATSAPP -->
-            <div class="logo">
-                <a href={{this.whatsapp}} target="_blank" title="whatapp"><img class="logo-image"
-                        src="../../../assets/images/social/whatsapp.png"></a>
-            </div>
-            <!-- FACEBOOK -->
-            <div class="logo">
-                <a href={{this.facebook}} target="_blank"><img class="logo-image"
-                        src="../../../assets/images/social/facebook.png"></a>
-            </div>
-        </div>
-    </div>
-
-    <!-- SIDE IMAGE  -->
-    <div class="col-xl-5" *ngIf="this.width >1024">
-        <img src="../../../assets/images/date_bg.jpg" style="width: 100%; height: 100%;" />
     </div>
 
 </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from 'src/app/Models/contact.model';
 import { ApiService } from 'src/app/services/api.service';
+import { faEnvelope, faHeart, faPhone } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contactus-form',
@@ -24,6 +26,11 @@ export class ContactusFormComponent implements OnInit {
   center: google.maps.LatLngLiteral;
 
   public width = window.innerWidth;
+  call = faPhone;
+  gmail = 'mailto:yohay@hatamargroup.com';
+  facebook = 'https://www.facebook.com/hatamar1';
+  // whatsapp = 'https://api.whatsapp.com/send?phone=972509175030&text=%D7%90%D7%94%D7%9C%D7%9F%20,%20%20%D7%90%D7%A0%D7%99%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%A6%D7%A2%20%D7%94%D7%96%D7%9E%D7%A0%D7%94%20%D7%A9%D7%9C%20%D7%94%D7%AA%D7%9E%D7%A8%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9B%D7%9D';
+
   public obj: Contact = {
     fullName: "",
     phone: "",
@@ -37,6 +44,7 @@ export class ContactusFormComponent implements OnInit {
   emailMSG: string;
   msgMSG: string;
   messageSentMSG: string;
+  msgSent: boolean;
 
   constructor(public api: ApiService) {
   }
@@ -57,8 +65,17 @@ export class ContactusFormComponent implements OnInit {
         // console.log("order obj:", this.obj);
         this.api.insertContact(this.obj);
         // console.log("MESSAGE IS FINE");
-        this.messageSentMSG = " ההודעה נקלטה, נדבר בקרוב! "
-        setInterval(function () { window.location.pathname = "/"; }, 2000);
+        this.msgSent = true;
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'תודה שהשארתם לנו הודעה!',
+          text: 'נציג מטעמנו יצור עמכם קשר בקרוב!',
+          footer: 'הנך מועבר לעמוד הבית',
+          showConfirmButton: false,
+          timer: 3500
+        })
+        setInterval(function () { window.location.pathname = "/"; }, 3500);
       }
     }
     else {

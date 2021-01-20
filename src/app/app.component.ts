@@ -25,10 +25,12 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class AppComponent {
   title = 'hatamar-group';
+  pathname = window.location.pathname;
 
   isFadeIn = false;
 
   ngOnInit(): void {
+    console.log(this.pathname)
     this.backToTop();
 
     window.addEventListener('scroll', () => {

@@ -1,8 +1,13 @@
 <div class="home-opener">
     <app-home-opener></app-home-opener>
+    <div class="arrow" (click)="scrollDownArrow()" id="scroll-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </div>
 
-<div class="home-info">
+<div class="home-info" id="scroll-here">
 
     <div class="hatamar-banner">
         <div class="row no-gutters">
@@ -16,16 +21,15 @@
         </div>
     </div>
 
-    <div class="home-about" id="about-us">
-        <div>
-            <app-home-about></app-home-about>
-        </div>
-    </div>
-
     <div class="home-logos">
         <div>
             <app-home-logos></app-home-logos>
         </div>
+    </div>
+
+    <!-- REVIEWS PANEL -->
+    <div class="col-12 pt-5 pb-5">
+        <app-home-reviews></app-home-reviews>
     </div>
 
 </div>

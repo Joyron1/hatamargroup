@@ -1,5 +1,8 @@
 .contact{
     text-align: center;
+    background-image:linear-gradient(180deg, rgba(255, 255, 255, 0.733), rgba(238, 149, 48, 0.377)), url('../../../assets/images/date_bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
         .header{
             background-color: #D2B48C;
             color: #815b3e;
@@ -8,33 +11,12 @@
             padding: 5px;
         }
         .text{
-            font-size: 20px;
+            font-size: 25px;
+            font-weight: 600;
             letter-spacing: 1px;
             padding: 10px;
         }
 }   
-
-.social-media{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .logo{
-        text-align: center;
-        align-items: center;
-        max-width: 400px; 
-        margin: 0px 50px;
-        padding: 20px 5px;
-        .logo-image{
-            height: auto;
-            width: 50px;
-        }
-        &:hover{
-            cursor: pointer;
-            transform: scale(1.2);
-            transition: transform 0.4s ease;
-        }
-    }
-}
 
 
 @media (max-width:420px){
