@@ -37,7 +37,7 @@
     :nth-child(3){
       animation-delay: -0.4s;
     }
-  }
+}
 
 @media (max-width:770px){
     .home-info{
@@ -58,6 +58,10 @@
             align-items: center;
             font-size:19px;
         }
+    }
+
+    .arrow{
+        bottom: 3%;
     }
     
 }
