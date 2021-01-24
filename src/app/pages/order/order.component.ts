@@ -66,50 +66,8 @@ export class OrderComponent implements OnInit {
     this.freeShippingModal();
   }
 
-  onSubmit = () => {
-    // console.log("order obj:", this.obj);
-    this.obj.totalPrice = this.lastPrice;
-    if (this.obj.firstName && this.obj.lastName && this.obj.phone && this.obj.email && this.obj.city && this.obj.fullAddress && this.totalQnt && this.obj.totalPrice) {
-      if ((this.obj.firstName.length >= 2) && (this.obj.lastName.length >= 2) && (this.obj.phone.length === 10) && (this.obj.fullAddress.length > 5) && (this.totalQnt >= 3)) {
-        // console.log("order obj:", this.obj);
-        this.obj.totalQnt = this.totalQnt;
-        if (this.isClientAgreed == true) {
-          this.api.insertOrder(this.obj);
-          console.log("ORDER IS FINE");
-          this.orderSent = true;
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'תודה רבה שהזמנתם מאיתנו!',
-            text: 'נציג מטעמנו יצור עמכם קשר לתאום ההזמנה.',
-            footer: 'הנך מועבר לעמוד הבית',
-            showConfirmButton: false,
-            timer: 3500
-          })
-        }
-        else {
-          Swal.fire({
-            position: 'center',
-            icon: 'error',
-            title: 'חובה לאשר את תקנון האתר',
-            cancelButtonText: 'חזרה להזמנה',
-            showCancelButton: true,
-            showConfirmButton: false,
-          })
-        }
-        // setInterval(function () { window.location.pathname = "/"; }, 3000);
-      }
-    }
-    else {
-      this.validateForm = () => {
-        Swal.fire({
-          template: '#my-template'
-        })
-      };
-    }
-  }
-
   validateForm() {
+    console.log("here")
     // FIRST NAME VALIDATION
     if (this.obj.firstName) {
       this.api.validateName(this.obj.firstName);
@@ -124,7 +82,6 @@ export class OrderComponent implements OnInit {
       else {
         this.firstNameMSG = ""; // תקין
         document.getElementById('firstName-label').style.color = "rgb(53, 187, 0)";
-        document.getElementById('firstName').style.color = "rgb(53, 187, 0)";
         document.getElementById('firstName').style.border = "1px solid rgb(53, 187, 0)";
       }
     }
@@ -148,7 +105,6 @@ export class OrderComponent implements OnInit {
       else {
         this.lastNameMSG = ""; // תקין
         document.getElementById('lastName-label').style.color = "rgb(53, 187, 0)";
-        document.getElementById('lastName').style.color = "rgb(53, 187, 0)";
         document.getElementById('lastName').style.border = "1px solid rgb(53, 187, 0)";
       }
     }
@@ -163,7 +119,6 @@ export class OrderComponent implements OnInit {
       if (this.obj.phone.length === 10 && this.api.validatePhone(this.obj.phone)) {
         this.phoneNumMSG = ""; // תקין
         document.getElementById('phone-label').style.color = "rgb(53, 187, 0)";
-        document.getElementById('phone').style.color = "rgb(53, 187, 0)";
         document.getElementById('phone').style.border = "1px solid rgb(53, 187, 0)";
       }
       else {
@@ -181,7 +136,7 @@ export class OrderComponent implements OnInit {
     if (this.obj.email) {
       if (this.api.validateEmail(this.obj.email)) {
         this.emailMSG = "";
-        document.getElementById('email').style.color = "black";
+        document.getElementById('email-label').style.color = "rgb(53, 187, 0)";
         document.getElementById('email').style.border = "1px solid rgb(53, 187, 0)";
       }
       else {
@@ -199,7 +154,6 @@ export class OrderComponent implements OnInit {
     if (this.obj.city) {
       this.cityMSG = "";
       document.getElementById('city-label').style.color = "rgb(53, 187, 0)";
-      document.getElementById('city').style.color = "rgb(53, 187, 0)";
       document.getElementById('city').style.border = "1px solid rgb(53, 187, 0)";
     }
     else {
@@ -213,7 +167,6 @@ export class OrderComponent implements OnInit {
       if (this.obj.fullAddress.length > 5) {
         this.fullAddressMSG = ""; // תקין
         document.getElementById('address-label').style.color = "rgb(53, 187, 0)";
-        document.getElementById('address').style.color = "rgb(53, 187, 0)";
         document.getElementById('address').style.border = "1px solid rgb(53, 187, 0)";
       }
       else {
@@ -230,14 +183,15 @@ export class OrderComponent implements OnInit {
 
     // QNT VALIDATION
     if (this.totalQnt) {
+      console.log(this.totalQnt)
       if (this.totalQnt >= 3) {
         this.qntMSG = "";
         document.getElementById('qnt-label').style.color = "rgb(53, 187, 0)";
-        document.getElementById('qnt').style.color = "rgb(53, 187, 0)";
         document.getElementById('qnt').style.border = "1px solid rgb(53, 187, 0)";
       }
       else {
         this.qntMSG = "* הכמות המינימלית להזמנה הינה 3 קילו תמרים.";
+        console.log("here:", this.qntMSG)
         document.getElementById('qnt-label').style.color = "rgb(243, 65, 65)";
         document.getElementById('qnt').style.color = "rgb(243, 65, 65)";
         document.getElementById('qnt').style.border = "1px solid rgb(243, 65, 65)";
@@ -257,14 +211,13 @@ export class OrderComponent implements OnInit {
       // console.log("dry dates price:", dryDatesPrice, "juicy dates price:", juicyDatesPrice);
       this.obj.totalPrice = dryDatesPrice + juicyDatesPrice;
       this.totalQnt = this.obj.dryDate + this.obj.juicyDate;
-      // console.log("total order price:", this.obj.totalPrice, "total ored quantity:", this.totalQnt);
-      if (this.totalQnt >= 5)
+      console.log("this.obj.totalPrice:", this.obj.totalPrice, "this.totalQnt:", this.totalQnt);
+      if (this.totalQnt >= 5 || this.totalQnt < 3)
         this.lastPrice = this.obj.totalPrice + "₪";
       else if (this.totalQnt < 5 && this.totalQnt >= 3) {
         this.lastPrice = this.obj.totalPrice + 20 + "₪";
       }
-      else if (this.totalQnt < 3)
-        this.lastPrice = "...";
+
     }
   }
 
@@ -291,16 +244,83 @@ export class OrderComponent implements OnInit {
     this.calcPrice();
   }
 
+  onSubmit = () => {
+    // console.log("order obj:", this.obj);
+    this.obj.totalPrice = this.lastPrice;
+    if (this.obj.firstName && this.obj.lastName && this.obj.phone && this.obj.email && this.obj.city && this.obj.fullAddress && this.totalQnt >= 3 && this.obj.totalPrice) {
+      if ((this.obj.firstName.length >= 2) && (this.obj.lastName.length >= 2) && (this.obj.phone.length === 10) && (this.obj.fullAddress.length > 5)) {
+        console.log("order obj:", this.obj);
+        this.obj.totalQnt = this.totalQnt;
+        if (this.isClientAgreed == true) {
+          this.api.insertOrder(this.obj);
+          console.log("ORDER IS FINE");
+          this.orderSent = true;
+          Swal.fire({
+            padding: '0px 0px 20px 0px',
+            position: 'center',
+            icon: 'success',
+            title: 'תודה רבה שהזמנתם מאיתנו!',
+            text: 'נציג מטעמנו יצור עמכם קשר לתאום ההזמנה.',
+            footer: 'הנך מועבר לעמוד הבית',
+            showConfirmButton: false,
+            timer: 3500
+          })
+          setInterval(function () { window.location.pathname = "/"; }, 3600);
+        }
+        else {
+          Swal.fire({
+            padding: '0px 0px 20px 0px',
+            position: 'center',
+            imageUrl: '../../../assets/images/logo/לוגו- ללא רקע.png',
+            imageWidth: 100,
+            imageAlt: `תמר מג'הול`,
+            title: 'צעד אחרון לפני שסיימנו',
+            text: 'על מנת שנוכל לקלוט את הזמנתך עליך לאשר את תקנון האתר.',
+            cancelButtonText: 'חזרה להזמנה',
+            showCancelButton: true,
+            showConfirmButton: false,
+          })
+        }
+
+      }
+    }
+    else {
+      this.validateForm();
+      Swal.fire({
+        padding: '0px 0px 20px 0px',
+        position: 'center',
+        icon: 'error',
+        title: 'חובה למלא את כל השדות',
+        text: 'חובה לסמן את השדות המסומנים ובצורה תקינה',
+        html: '<div class="col-12">' +
+          '<div class="alertMsgs">' +
+          `<div class="my-1"><small>${this.firstNameMSG}</small></div>` +
+          `<div class="my-1"><small>${this.lastNameMSG}</small></div>` +
+          `<div class="my-1"><small>${this.phoneNumMSG}</small></div>` +
+          `<div class="my-1"><small>${this.emailMSG}</small></div>` +
+          `<div class="my-1"><small>${this.cityMSG}</small></div>` +
+          `<div class="my-1"><small>${this.fullAddressMSG}</small></div>` +
+          `<div class="my-1"><small>${this.qntMSG}</small></div>` +
+          '</div>' +
+          '</div>',
+        cancelButtonText: 'חזרה למילוי ההזמנה',
+        showCancelButton: true,
+        showConfirmButton: false,
+      })
+    }
+  }
+
   freeShippingModal = () => {
     setTimeout(function () {
       Swal.fire({
+        padding: '0px 0px 20px 0px',
         position: 'center',
         imageUrl: '../../../assets/images/logo/לוגו- ללא רקע.png',
         imageWidth: 100,
         imageAlt: `תמר מג'הול`,
-        titleText: 'מעוניינים במשלוח ללא עלות?',
+        titleText: 'משלוח עד הבית!',
         html:
-          'משלוח ללא עלות בהזמנת <b>5 ק"ג</b> מכל סוג. ' +
+          'משלוח ללא עלות בהזמנת <b>5 ק"ג</b>. ' +
           '<br> ' +
           '<small>ניתן לשלב בין סוגי התמרים!</small>',
         cancelButtonText: 'חזרה להזמנה',

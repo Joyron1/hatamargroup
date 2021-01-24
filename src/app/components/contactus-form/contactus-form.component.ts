@@ -80,6 +80,24 @@ export class ContactusFormComponent implements OnInit {
     }
     else {
       this.validateForm();
+      Swal.fire({
+        padding: '0px 0px 20px 0px',
+        position: 'center',
+        icon: 'error',
+        title: 'חובה למלא את כל השדות',
+        text: 'חובה לסמן את השדות המסומנים ובצורה תקינה',
+        html: '<div class="col-12">' +
+          '<div class="alerts">' +
+          `<div class="my-1"><small>${this.fullNameMSG}</small></div>` +
+          `<div class="my-1"><small>${this.phoneMSG}</small></div>` +
+          `<div class="my-1"><small>${this.emailMSG}</small></div>` +
+          `<div class="my-1"><small>${this.msgMSG}</small></div>` +
+          '</div>' +
+          '</div>',
+        cancelButtonText: 'חזרה למילוי הטופס',
+        showCancelButton: true,
+        showConfirmButton: false,
+      })
     }
   }
 
