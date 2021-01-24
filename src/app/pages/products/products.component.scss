@@ -28,9 +28,10 @@
             height: auto;
             margin: 0px 50px 30px;
             border-radius: 10px;
+            transition: transform 500ms;
             &:hover{
                 transform: scale(1.05);
-                transition: transform 500ms;
+                
             }
             .card-image{
                 height: auto;

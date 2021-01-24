@@ -58,8 +58,6 @@
                             <div class="form-row ">
                                 <div class="form-group col-md-3 col-sm-12 ">
                                     <label for="dry-date">*כמות מג'הול יבש</label>
-                                    <!-- <input type="number" name="dry-date" class="form-control" id="dry-date" min="0"
-                                        (change)="calcPrice()" [(ngModel)]="obj.dryDate" required> -->
                                     <div class="row no-gutters bottomBtns">
                                         <button type="button" class="qntBtn col-2" (click)="plus(1)"><i
                                                 class="fa fa-arrow-up"></i></button>
@@ -70,8 +68,6 @@
                                 </div>
                                 <div class="form-group col-md-3 col-sm-12">
                                     <label for="juicy-date">*כמות מג'הול עסיסי</label>
-                                    <!-- <input type="number" name="juicy-date" class="form-control" id="juicy-date" min="0"
-                                        (change)="calcPrice()" [(ngModel)]="obj.juicyDate" required> -->
                                     <div class="row no-gutters bottomBtns">
                                         <button type="button" class="qntBtn col-2" (click)="plus(2)"><i
                                                 class="fa fa-arrow-up"></i></button>
@@ -90,6 +86,15 @@
                                     <input type="text" name="totalP" class="form-control" id="totalP"
                                         [value]="obj.totalPrice" disabled required>
                                 </div>
+
+                                <div class="form-group col-12 my-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="unchecked"
+                                            id="ppCheckbox" (click)="checkedPP()">
+                                        <span class="mr-3">אני מאשר שקראתי את <a routerLink="/privacy-policy">תקנון
+                                                האתר</a>.</span>
+                                    </div>
+                                </div>
                                 <div class="form-group col-12 my-3">
                                     <span *ngIf="!orderSent"><button type="button" class="btn btn-success"
                                             (click)="onSubmit();" style="width: 100%;">סיום
@@ -106,20 +111,25 @@
                                     <div class="my-1"><small>{{cityMSG}}</small></div>
                                     <div class="my-1"><small>{{fullAddressMSG}}</small></div>
                                     <div class="my-1"><small>{{qntMSG}}</small></div>
-                                    <h4 class="my-1" *ngIf="5 > totalQnt"><b>בהזמנה של 5 קילו תמרים המשלוח
-                                            חינם!!!</b></h4>
-                                    <div class="my-4">
-                                        <div *ngIf="orderSentMSG">
-                                            <div class="spinner-grow mr-5" style="width: 3rem; height: 3rem;"
-                                                role="status">
-                                                <span class="sr-only">Loading...</span>
-                                            </div>
-                                        </div>
-                                        <p class="loaderMSG mt-3"> {{orderSentMSG}}</p>
-                                    </div>
                                 </div>
-
                             </div>
+                            <template id="my-template">
+                                <swal-title>
+                                    Save changes to "Untitled 1" before closing?
+                                </swal-title>
+                                <swal-icon type="warning" color="red"></swal-icon>
+                                <swal-button type="confirm">
+                                    Save As
+                                </swal-button>
+                                <swal-button type="cancel">
+                                    Cancel
+                                </swal-button>
+                                <swal-button type="deny">
+                                    Close without Saving
+                                </swal-button>
+                                <swal-param name="allowEscapeKey" value="false" />
+                                <swal-param name="customClass" value='{ "popup": "my-popup" }' />
+                            </template>
 
                         </form>
                     </div>
@@ -167,6 +177,7 @@
                             </p>
                         </div>
                         <app-home-logos></app-home-logos>
+
                     </div>
                 </div>
             </div>

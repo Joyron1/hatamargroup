@@ -45,10 +45,11 @@ export class OrderComponent implements OnInit {
 
   nameWithNum: boolean;
   orderSent: boolean;
+  isClientAgreed: boolean;
 
   constructor(public route: ActivatedRoute, public api: ApiService, private title: Title, private meta: Meta) {
     this.cities = jsonCities['default'];
-    console.log(this.cities);
+    // console.log(this.cities);
   }
 
   ngOnInit(): void {
@@ -62,32 +63,49 @@ export class OrderComponent implements OnInit {
 
     this.scrollTop();
     this.calcPrice();
+    this.freeShippingModal();
   }
 
   onSubmit = () => {
-    console.log("order obj:", this.obj);
+    // console.log("order obj:", this.obj);
     this.obj.totalPrice = this.lastPrice;
     if (this.obj.firstName && this.obj.lastName && this.obj.phone && this.obj.email && this.obj.city && this.obj.fullAddress && this.totalQnt && this.obj.totalPrice) {
       if ((this.obj.firstName.length >= 2) && (this.obj.lastName.length >= 2) && (this.obj.phone.length === 10) && (this.obj.fullAddress.length > 5) && (this.totalQnt >= 3)) {
-        console.log("order obj:", this.obj);
+        // console.log("order obj:", this.obj);
         this.obj.totalQnt = this.totalQnt;
-        this.api.insertOrder(this.obj);
-        console.log("ORDER IS FINE");
-        this.orderSent = true;
-        Swal.fire({
-          position: 'center',
-          icon: 'success',
-          title: 'תודה רבה שהזמנתם מאיתנו!',
-          text: 'נציג מטעמנו יצור עמכם קשר לתאום ההזמנה.',
-          footer: 'הנך מועבר לעמוד הבית',
-          showConfirmButton: false,
-          timer: 3500
-        })
+        if (this.isClientAgreed == true) {
+          this.api.insertOrder(this.obj);
+          console.log("ORDER IS FINE");
+          this.orderSent = true;
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'תודה רבה שהזמנתם מאיתנו!',
+            text: 'נציג מטעמנו יצור עמכם קשר לתאום ההזמנה.',
+            footer: 'הנך מועבר לעמוד הבית',
+            showConfirmButton: false,
+            timer: 3500
+          })
+        }
+        else {
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'חובה לאשר את תקנון האתר',
+            cancelButtonText: 'חזרה להזמנה',
+            showCancelButton: true,
+            showConfirmButton: false,
+          })
+        }
         // setInterval(function () { window.location.pathname = "/"; }, 3000);
       }
     }
     else {
-      this.validateForm();
+      this.validateForm = () => {
+        Swal.fire({
+          template: '#my-template'
+        })
+      };
     }
   }
 
@@ -271,6 +289,29 @@ export class OrderComponent implements OnInit {
     }
     this.totalQnt = this.obj.dryDate + this.obj.juicyDate;
     this.calcPrice();
+  }
+
+  freeShippingModal = () => {
+    setTimeout(function () {
+      Swal.fire({
+        position: 'center',
+        imageUrl: '../../../assets/images/logo/לוגו- ללא רקע.png',
+        imageWidth: 100,
+        imageAlt: `תמר מג'הול`,
+        titleText: 'מעוניינים במשלוח ללא עלות?',
+        html:
+          'משלוח ללא עלות בהזמנת <b>5 ק"ג</b> מכל סוג. ' +
+          '<br> ' +
+          '<small>ניתן לשלב בין סוגי התמרים!</small>',
+        cancelButtonText: 'חזרה להזמנה',
+        showCancelButton: true,
+        showConfirmButton: false,
+      })
+    }, 7000);
+  }
+
+  checkedPP = () => {
+    this.isClientAgreed = ($('#ppCheckbox').is(':checked'));
   }
 
 
