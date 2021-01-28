@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="heb">
+<html lang="HEBREW">
 
 <head>
 
@@ -88,7 +88,18 @@
 
   <app-root></app-root>
 
-  <!-- <div class="row no-gutters ">
+  <script>
+    window.addEventListener("load", function () {
+      const loader = document.querySelector(".loader");
+      loader.className += " hidden"; // class "loader hidden"
+    });
+  </script>
+</body>
+
+</html>
+
+
+<!-- <div class="row no-gutters ">
     <div class="col-12 siteNotFound">
       <img class="hatamar-logo" src="./assets/images/logo/לוגו- ללא רקע.png" alt="Loading..." width="150" />
       <h2 class="mt-5">האתר החדש שלנו יעלה בקרוב...</h2>
@@ -114,13 +125,3 @@
     </div>
     <a href="https://jdevelopments.co.il"></a>
   </div> -->
-
-  <script>
-    window.addEventListener("load", function () {
-      const loader = document.querySelector(".loader");
-      loader.className += " hidden"; // class "loader hidden"
-    });
-  </script>
-</body>
-
-</html>
