@@ -1,7 +1,7 @@
 #opener{
   width: 100%;
   min-height: 93vh;
-  background-image:linear-gradient(50deg, rgba(66, 66, 66, 0.5), rgba(82, 82, 82, 0.4)), url('../../../assets/images/רקע3.jpg');
+  background-image:linear-gradient(180deg, rgba(66, 66, 66, 0.6), rgba(131, 71, 44, 0.3));
   background-repeat: no-repeat;
   background-size: cover;
   // background-attachment: fixed;
@@ -17,7 +17,7 @@
       top:50%;
       left: 50%;
       transform: translate(-50%,-50%);
-      font-size: 20px;
+      font-size: 1.2em;
       // width: 50%;
       .upper-btn{
         margin: 20px 0px;
@@ -33,15 +33,15 @@
         }
       }
     }
-    // .videoBG{
-    //   width: auto;
-    //   min-height: 100%;
-    //   position: fixed;
-    //   top: 0;
-    //   left: 50;
-    //   z-index: -1;
-    // }
-  } 
+    .videoBG{
+      min-width: 100%;
+      height: 120vh;
+      position: fixed;
+      top: 0;
+      left: 50;
+      z-index: -1; 
+  }
+} 
   
   .arrow{
     position: absolute;
@@ -66,12 +66,17 @@
       animation-delay: -0.4s;
     }
   }
+  @media screen and (max-width:1200px){
+    
+  }
 
-  @media (max-width:1028px){
+  
+
+  @media screen and (max-width:767px){
     #opener{
       background-image:linear-gradient(50deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)), url('../../../assets/images/רקע2.jpg');
       .text{
-        font-size: 17px;
+        font-size: 1em;
       }
     }
     

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
+// import Accessibility from '../../node_modules/accessibility/dist/accessibility.min.js';
+// import { Accessibility } from 'accessibility';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +31,13 @@ export class AppComponent {
 
   isFadeIn = false;
 
+
+  constructor() {
+
+  }
+
   ngOnInit(): void {
+    this.accessibilityIcon();
     console.log(this.pathname)
     this.backToTop();
 
@@ -50,6 +58,45 @@ export class AppComponent {
         }
       }
     })
+  }
+
+  accessibilityIcon = () => {
+    let labels = {
+      menuTitle: 'אפשרויות הנגשה',
+      increaseText: 'הגדל גודל טקסט',
+      decreaseText: 'הקטן גודל טקסט',
+      increaseTextSpacing: 'הגדלת רווח טקסט',
+      decreaseTextSpacing: 'הקטנת רווח טקסט',
+      invertColors: 'היפוך צבעים',
+      grayHues: 'גוונים אפורים',
+      underlineLinks: 'הדגשת קישורים',
+      bigCursor: 'עכבר גדול',
+    };
+    let options = {
+      labels: labels,
+      modules: {
+        increaseText: true,
+        decreaseText: true,
+        invertColors: true,
+        increaseTextSpacing: true,
+        decreaseTextSpacing: true,
+        grayHues: true,
+        underlineLinks: true,
+        bigCursor: true,
+        readingGuide: false,
+        textToSpeech: false,
+        speechToText: false,
+      },
+      icon: {
+        position: {
+          bottom: { size: 50, units: '%' },
+          left: { size: 0, units: '%' },
+          type: 'fixed'
+        }
+      }
+    };
+    // window.addEventListener('load', function () { new Accessibility(options); }, false);
+    window.addEventListener('load', function () { new (self as any).Accessibility(options); }, false);
   }
 
   backToTop() {
