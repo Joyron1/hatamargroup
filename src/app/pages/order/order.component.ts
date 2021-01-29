@@ -294,13 +294,13 @@ export class OrderComponent implements OnInit {
         text: 'חובה לסמן את השדות המסומנים ובצורה תקינה',
         html: '<div class="col-12">' +
           '<div class="alertMsgs">' +
-          `<div class="my-1"><small>${this.firstNameMSG}</small></div>` +
-          `<div class="my-1"><small>${this.lastNameMSG}</small></div>` +
-          `<div class="my-1"><small>${this.phoneNumMSG}</small></div>` +
-          `<div class="my-1"><small>${this.emailMSG}</small></div>` +
-          `<div class="my-1"><small>${this.cityMSG}</small></div>` +
-          `<div class="my-1"><small>${this.fullAddressMSG}</small></div>` +
-          `<div class="my-1"><small>${this.qntMSG}</small></div>` +
+          `<div class="my-1"><small role="text" tabindex="1" >${this.firstNameMSG}</small></div>` +
+          `<div class="my-1"><small role="text" tabindex="1" >${this.lastNameMSG}</small></div>` +
+          `<div class="my-1"><small role="text" tabindex="1" >${this.phoneNumMSG}</small></div>` +
+          `<div class="my-1"><small role="text" tabindex="1" >${this.emailMSG}</small></div>` +
+          `<div class="my-1"><small role="text" tabindex="1" >${this.cityMSG}</small></div>` +
+          `<div class="my-1"><small role="text" tabindex="1" >${this.fullAddressMSG}</small></div>` +
+          `<div class="my-1"><small role="text" tabindex="1" >${this.qntMSG}</small></div>` +
           '</div>' +
           '</div>',
         cancelButtonText: 'חזרה למילוי ההזמנה',

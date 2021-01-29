@@ -1,17 +1,17 @@
 <swiper class="carousel" [slidesPerView]="slidesNum" [spaceBetween]="50" (swiper)="onSwiper($event)"
-    (slideChange)="onSlideChange()" [autoplay]="true" style="cursor: grab;">
+    (slideChange)="onSlideChange()" [autoplay]="true" style="cursor: grab;" tabindex="1" aria-label="רצועת ביקורות">
 
-    <ng-container class="carousel-cell" *ngFor="let slide of slides">
+    <ng-container class="carousel-cell" *ngFor="let slide of slides" tabindex="1">
 
-        <ng-template swiperSlide>
+        <ng-template swiperSlide aria-labelledby="ביקורת">
             <div class="card">
-                <img src="{{slide.img}}" alt="Avatar" class="avatar">
+                <img src="{{slide.img}}" alt="Avatar" class="avatar" alt="תמונת לקוח">
                 <div>
-                    <div class="review-name pt-1">{{slide.name}}</div>
-                    <div class="review-city">{{slide.city}}</div>
+                    <div class="review-name pt-1" role="text" aria-label="שם לקוח" tabindex="0">{{slide.name}}</div>
+                    <div class="review-city" role="text" aria-label="עיר מגורים" tabindex="0">{{slide.city}}</div>
                     <span><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i></span>
-                    <div class="review-text">{{slide.review}}
+                    <div class="review-text" role="text" tabindex="0">{{slide.review}}
                     </div>
                 </div>
             </div>

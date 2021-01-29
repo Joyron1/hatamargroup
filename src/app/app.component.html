@@ -1,10 +1,12 @@
 <div class="back-to-top" [@fadeIn]="isFadeIn ? 'open' : 'closed'">
-    <span (click)="backToTop()"><img src="./assets/images/up-arrow.png" width="40"></span>
+    <span (click)="backToTop()"><img role="button" aria-label="כפתור חזרה למעלה הדף" tabindex="0"
+            src="./assets/images/up-arrow.png" width="40"></span>
 </div>
 
 <div class="whatsapp">
     <a href="https://api.whatsapp.com/send?phone=972509175030&text=%D7%90%D7%94%D7%9C%D7%9F%20,%20%20%D7%90%D7%A0%D7%99%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%A6%D7%A2%20%D7%94%D7%96%D7%9E%D7%A0%D7%94%20%D7%A9%D7%9C%20%D7%94%D7%AA%D7%9E%D7%A8%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9B%D7%9D"
-        target="_blank"><img src="./assets/images/whatsapp-fast-btn.png" width="60"></a>
+        target="_blank"><img role="button" aria-label="שליחת הודעת וואצאפ" tabindex="0"
+            src="./assets/images/whatsapp-fast-btn.png" width="60" alt="שליחת הודעת וואצאפ"></a>
 </div>
 
 <app-navbar></app-navbar>

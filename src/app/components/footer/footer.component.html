@@ -1,40 +1,45 @@
-<div class="pt-5 footer">
-    <img src="../../../assets/images/datepalmtree.png" id="tree-img" />
+<footer class="pt-5 footer">
+    <img src="../../../assets/images/datepalmtree.png" id="tree-img" alt="עץ תמר" />
     <div class="container">
         <div class="row no-gutters">
             <div class="col-lg-5 col-md-5 location">
                 <h1><b>צרו קשר</b></h1>
-                <div>
+                <div aria-labelledby="מיקום">
                     <fa-icon [icon]="location" class="ml-2"></fa-icon>בקעת הירדן, ישראל
                 </div>
-                <div class="my-2">
-                    <fa-icon [icon]="call" class="ml-2"></fa-icon><a href="tel:0509175030">050-917-5030</a>
+                <div class="my-2" aria-labelledby="מספר טלפון">
+                    <fa-icon [icon]="call" class="ml-2"></fa-icon><a role="button" aria-labelledby="0509175030"
+                        href="tel:0509175030">050-917-5030</a>
                 </div>
-                <div class="my-2">
-                    <fa-icon [icon]="envelope" class="ml-2"></fa-icon><a
+                <div class="my-2" aria-labelledby="כתובת אימייל">
+                    <fa-icon [icon]="envelope" class="ml-2"></fa-icon><a role="button"
+                        aria-labelledby="yohay@hatamargroup.com"
                         href="mailto:yohay@hatamargroup.com">yohay@hatamargroup.com</a>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3  links">
+            <div class="col-lg-3 col-md-3 links" aria-labelledby="קישורים מהירים">
                 <h1><b>קישורים</b></h1>
                 <ul>
-                    <li class="my-3">- <a href="">עמוד הבית</a></li>
-                    <li class="my-3">- <a routerLink="/products">לחנות שלנו</a></li>
-                    <li class="my-3">- <a routerLink="/contact-us">דברו איתנו</a></li>
-                    <li class="my-3">- <a routerLink="/privacy-policy">תקנון האתר</a></li>
+                    <li class="my-3">- <a role="button" aria-labelledby="עמוד הבית" href="">עמוד הבית</a></li>
+                    <li class="my-3">- <a role="button" aria-labelledby="החנות שלנו" routerLink="/products">לחנות
+                            שלנו</a></li>
+                    <li class="my-3">- <a role="button" aria-labelledby="יצירת קשר" routerLink="/contact-us">דברו
+                            איתנו</a></li>
+                    <li class="my-3">- <a role="button" aria-labelledby="תקנון האתר" routerLink="/privacy-policy">תקנון
+                            האתר</a></li>
                 </ul>
             </div>
 
-            <div class="col-lg-4 col-md-4  about-company">
+            <div class="col-lg-4 col-md-4 about-company" aria-labelledby="חפשו אותנו">
                 <h1><b>חפשו אותנו</b></h1>
                 <p>
-                    <a href={{this.facebook}} target="_blank"><img class="socialMedia"
+                    <a href={{this.facebook}} target="_blank" title="facebook"><img class="socialMedia" role="button"
                             src="../../../assets/images/social/facebook.png"></a>
-                    <!-- <a href={{this.instagram}} target="_blank"><img class="socialMedia" target="_blank"
-                            src="../../../assets/images/instagram1.png"></a> -->
-                    <a href={{this.whatsapp}} target="_blank" title="whatapp"><img class="socialMedia"
+                    <a href={{this.instagram}} target="_blank" title="instagram"><img class="socialMedia" role="button"
+                            src="../../../assets/images/social/instagram.png"></a>
+                    <a href={{this.whatsapp}} target="_blank" title="whatapp"><img class="socialMedia" role="button"
                             src="../../../assets/images/social/whatsapp.png"></a>
-                    <a href={{this.gmail}} title="email"><img class="socialMedia"
+                    <a href={{this.gmail}} title="email"><img class="socialMedia" role="button"
                             src="../../../assets/images/social/gmail.png"></a>
                 </p>
                 <iframe
@@ -47,9 +52,10 @@
         <div class="row no-gutters">
             <div class="col copyright">
                 <p><small class="text-white-50"> Made with <fa-icon [icon]="heartIcon"></fa-icon> by <a target="_blank"
-                            class="text-white" href="http://jdevelopments.co.il">JDevelopments</a> ©
+                            class="text-white" href="http://jdevelopments.co.il"
+                            aria-label="סטודיו JDevelopments לבניית אתרים">JDevelopments</a> ©
                         2020.</small></p>
             </div>
         </div>
     </div>
-</div>
+</footer>

@@ -1,28 +1,30 @@
 <div class="row no-gutters contact-section">
     <div class="col- contact-form">
-        <form class="row">
+        <form class="row" role="form" aria-labelledby="טופס יצירת קשר">
             <div class="form-group col-md-6">
                 <input type="text" class="form-control" id="fullName" name="fullName" [(ngModel)]="obj.fullName"
-                    placeholder="*שם מלא">
+                    placeholder="*שם מלא" aria-placeholder="שם מלא" aria-labelledby="שם מלא">
             </div>
             <div class="form-group col-md-6">
                 <input type="tel" class="form-control" id="phone" name="phone" [(ngModel)]="obj.phone" maxlength="10"
-                    placeholder="*טלפון נייד">
+                    placeholder="*טלפון נייד" aria-placeholder="טלפון נידד" aria-labelledby="טלפון נייד">
             </div>
             <div class="form-group col-md-6">
                 <input type="email" class="form-control" id="email" name="email" [(ngModel)]="obj.email"
-                    placeholder="*כתובת אימייל">
+                    placeholder="*כתובת אימייל" aria-placeholder="כתובת אימייל" aria-labelledby="כתובת אימייל">
             </div>
             <div class="form-group col-md-6">
                 <input type="text" class="form-control" id="how" name="how" [(ngModel)]="obj.how"
-                    placeholder="*איך הגעת אלינו?">
+                    placeholder="*איך הגעת אלינו?" aria-placeholder="איך הגעת אלינו?" aria-labelledby="איך הגעת אלינו?">
             </div>
             <div class="form-group col-md-12">
                 <textarea class="form-control" id="message" rows="3" name="msg" [(ngModel)]="obj.msg"
-                    placeholder="*במה נוכל לעזור?"></textarea>
+                    placeholder="*במה נוכל לעזור?" aria-placeholder="ההודעה שלך"
+                    aria-labelledby="ההודעה שלך"></textarea>
             </div>
             <div class="form-group col-md-12" *ngIf="!msgSent">
-                <button type="submit" class="btn btn-primary col-12" (click)="onSubmit()">שלח</button>
+                <button type="button" role="button" aria-labelledby="שלח פרטים" class="btn btn-primary col-12"
+                    (click)="onSubmit()">שלח</button>
             </div>
 
         </form>
@@ -32,27 +34,29 @@
 <div class="row no-gutters social-media">
     <!-- CALL -->
     <!-- Button trigger modal -->
-    <div class="logo" data-toggle="modal" data-target="#exampleModal">
-        <img src="../../../assets/images/social/call.png" class="logo-image" />
+    <div role="dialog" aria-labelledby="חלון מספרי טלפון נוספים" class="logo" data-toggle="modal"
+        data-target="#exampleModal">
+        <img src="../../../assets/images/social/call.png" class="logo-image" alt="טלפון" />
     </div>
     <!-- GMAIL -->
     <div class="logo">
-        <a href={{this.gmail}} title="email"><img class="logo-image" src="../../../assets/images/social/gmail.png"></a>
+        <a role="button" aria-labelledby="כתובת אימייל" href={{this.gmail}} title="email"><img class="logo-image"
+                src="../../../assets/images/social/gmail.png" alt="אימייל"></a>
     </div>
-    <!-- WHATSAPP -->
-    <!-- <div class="logo">
-        <a href={{this.whatsapp}} target="_blank" title="whatapp"><img class="logo-image"
-                src="../../../assets/images/social/whatsapp.png"></a>
-    </div> -->
+    <!-- INSTAGRAM -->
+    <div class="logo">
+        <a role="button" aria-labelledby="אינסטגרם" href={{this.instagram}} target="_blank" title="instagram"><img
+                class="logo-image" src="../../../assets/images/social/instagram.png" alt="אינסטגרם"></a>
+    </div>
     <!-- FACEBOOK -->
     <div class="logo">
-        <a href={{this.facebook}} target="_blank"><img class="logo-image"
-                src="../../../assets/images/social/facebook.png"></a>
+        <a role="button" aria-labelledby="פייסבוק" href={{this.facebook}} target="_blank"><img class="logo-image"
+                src="../../../assets/images/social/facebook.png" alt="facebook"></a>
     </div>
 </div>
 
 <div class="row no-gutters">
-    <div class="col-12 map">
+    <div class="col-12 map" aria-labelledby="מפת גוגל">
         <google-map [zoom]="11" [center]="center" [width]="width" height=250>
             <map-marker [position]="marker.position" [label]="marker.label" [title]="marker.title"
                 [options]="marker.options">
@@ -63,26 +67,27 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="מודעת מספרי טלפון נוספים"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" role="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body" style="text-align: center; color: black;">
                 <p>
                     <fa-icon [icon]="call" class="ml-2"></fa-icon><b>יוחאי: </b>
-                    <a href="tel:0507390422">050-739-0422</a>
+                    <a role="button" aria-labelledby="0507390422" href="tel:0507390422">050-739-0422</a>
                 </p>
                 <p>
                     <fa-icon [icon]="call" class="ml-2"></fa-icon><b>אופיר: </b>
-                    <a href="tel:0503727774">050-372-7774</a>
+                    <a role="button" aria-labelledby="0503727774" href="tel:0503727774">050-372-7774</a>
                 </p>
                 <p>
                     <fa-icon [icon]="call" class="ml-2"></fa-icon><b>עידן: </b>
-                    <a href="tel:0509175030">050-917-5030</a>
+                    <a role="button" aria-labelledby="0509175030" href="tel:0509175030">050-917-5030</a>
                 </p>
             </div>
             <div class="modal-footer">

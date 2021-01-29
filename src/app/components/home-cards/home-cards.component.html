@@ -1,11 +1,11 @@
 <div class="row no-gutters home-cards">
-    <div class="card" *ngFor="let card of homeCards">
-        <img src="{{card.img}}" class="card-image" width="100" />
+    <div class="card" *ngFor="let card of homeCards" tabindex="0" aria-label="כרטיסיית מידע">
+        <img src="{{card.img}}" class="card-image" width="100" alt={{card.title}} />
         <div class="card-header">
-            <b>{{card.title}}</b>
+            <b role="text" tabindex="0">{{card.title}}</b>
         </div>
         <div class="card-body">
-            <p>{{card.text}}</p>
+            <p role="text" tabindex="0">{{card.text}}</p>
         </div>
     </div>
 </div>
