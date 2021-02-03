@@ -25,7 +25,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@types/jquery": "^3.5.5",
-    "accessibility": "^3.0.10",
+    "accessibility": "^3.0.13",
     "angular-fontawesome": "^1.0.0",
     "flickity": "^2.2.1",
     "jquery": "^3.5.1",

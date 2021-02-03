@@ -27,7 +27,7 @@ export class HomeReviewsComponent implements OnInit {
     console.log(swiper)
   }
   onSlideChange() {
-    console.log('slide change')
+    // console.log('slide change')
   }
 
   getWidth() {

@@ -104,13 +104,18 @@
                                         <span class="mr-3">אני מאשר שקראתי את <a routerLink="/privacy-policy">תקנון
                                                 האתר</a>.</span>
                                     </div>
+                                    <small class="text-muted">* <b>תשלום יועבר באמצעות BIT במועד קבלת
+                                            המשלוח.</b></small>
                                 </div>
-                                <div class="form-group col-12 my-3">
+                                <div class="form-group col-12 my-1">
                                     <span *ngIf="!orderSent"><button role="button" aria-labelledby="סיום הזמנה"
                                             tabindex="1" type="button" class="btn btn-success" (click)="onSubmit();"
-                                            style="width: 100%;">סיום
-                                            הזמנה</button></span>
+                                            style="width: 100%;">תשלום במועד המסירה</button></span>
+
                                 </div>
+                                <!-- <div class="form-group col-md-6 col-12 my-1">
+                                    <div #paypal></div>
+                                </div> -->
                             </div>
                         </form>
 
@@ -124,7 +129,7 @@
                 <div class="row no-gutters order-total">
                     <div class="col-md-12">
                         <div class="card-body">
-                            <h2 class="card-title">פירוט ההזמנה</h2>
+                            <h1 class="card-title my-4">פירוט ההזמנה</h1>
                             <div class="card-text">
                                 <table class="table table-bordered">
                                     <thead>
@@ -152,14 +157,11 @@
                                     ומעלה.</small> <br>
                                 <small class="text-muted">* הגעת המשלוח הינה עד 10 ימי עסקים מיום ביצוע ההזמנה.</small>
                                 <br>
-                                <small class="text-muted">* <b>תשלום יבוצע ביום הגעת המשלוח בביט או במזומן.</b></small>
-                                <br>
                                 <small class="text-muted">* לצפייה בתקנון האתר <a [routerLink]="['/privacy-policy']"
                                         routerLinkActive="router-link-active">לחץ כאן</a>. </small>
                             </p>
                         </div>
                         <app-home-logos></app-home-logos>
-
                     </div>
                 </div>
             </div>

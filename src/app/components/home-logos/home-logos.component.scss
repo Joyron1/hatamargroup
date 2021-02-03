@@ -7,14 +7,47 @@
         text-align: center;
         margin: 0px 50px;
         padding: 30px 5px;
-        .logo-image{
+        img{
             height: auto;
-            width: 50%;
+            width: 100px;
         }
         .logo-title{
             padding: 5px;
             font-size: 20px;
             background-color: transparent;
+        }
+    }
+}
+
+@media (max-width:770px){
+    .home-logos{
+        .logo{
+            img{
+                height: auto;
+                width: 50px;
+            }
+            .logo-title{
+                padding: 0px;
+                font-size: 13px;
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+
+@media (max-width:440px){
+    .home-logos{
+        .logo{
+            img{
+                height: auto;
+                width: 100px;
+            }
+            .logo-title{
+                padding: 1px;
+                font-size: 18px;
+                background-color: transparent;
+            }
         }
     }
 }

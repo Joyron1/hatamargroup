@@ -1,0 +1,26 @@
+<div class="home-info">
+    <div>
+        <div class="hatamar-banner">
+            <div class="row no-gutters">
+                <header><b>התמר</b> - הכי טבעי - הכי ישראלי</header>
+            </div>
+        </div>
+
+        <div class="home-cards">
+            <div [@slideLeft]="isSlideLeft ? 'open' : 'closed'">
+                <app-home-cards></app-home-cards>
+            </div>
+        </div>
+
+        <div class="home-logos">
+            <div>
+                <app-home-logos></app-home-logos>
+            </div>
+        </div>
+
+        <!-- REVIEWS PANEL -->
+        <div class="col-12 pt-5 pb-5">
+            <app-home-reviews></app-home-reviews>
+        </div>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 // import Accessibility from '../../node_modules/accessibility/dist/accessibility.min.js';
-// import { Accessibility } from 'accessibility';
+import { Accessibility } from 'accessibility/src/main';
 
 @Component({
   selector: 'app-root',
@@ -88,6 +88,7 @@ export class AppComponent {
         speechToText: false,
       },
       icon: {
+        forceFont: true,
         position: {
           bottom: { size: 50, units: '%' },
           left: { size: 0, units: '%' },
@@ -95,8 +96,7 @@ export class AppComponent {
         }
       }
     };
-    // window.addEventListener('load', function () { new Accessibility(options); }, false);
-    window.addEventListener('load', function () { new (self as any).Accessibility(options); }, false);
+    new Accessibility(options);
   }
 
   backToTop() {

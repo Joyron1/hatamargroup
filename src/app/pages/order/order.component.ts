@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Order } from 'src/app/Models/order.model';
@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
+  @ViewChild('paypal', { static: true }) paypalElement: ElementRef;
 
   public width = window.innerWidth;
   public dates;
@@ -49,10 +50,52 @@ export class OrderComponent implements OnInit {
 
   constructor(public route: ActivatedRoute, public api: ApiService, private title: Title, private meta: Meta) {
     this.cities = jsonCities['default'];
-    // console.log(this.cities);
   }
 
   ngOnInit(): void {
+
+    // window.paypal.Buttons({
+    //   style: {
+    //     size: 'responsive',
+    //     layout: 'horizontal',
+    //     color: 'gold',
+    //     shape: 'rect',
+    //     // label: 'paypal',
+    //     // tagline: 'false'
+    //   },
+    //   createOrder: (data, actions) => {
+    //     return actions.order.create({
+    //       purchase_units: [
+    //         {
+    //           description: "תמר מג'הול - קבוצת התמר",
+    //           amount: {
+    //             currency_code: 'ILS',
+    //             value: this.obj.totalPrice
+    //           }
+    //         }
+    //       ]
+    //     });
+    //   },
+    //   onApprove: async (data, actions) => {
+    //     const order = await actions.order.capture();
+    //     console.log("order is:", order);
+    //     Swal.fire({
+    //       padding: '0px 0px 20px 0px',
+    //       position: 'center',
+    //       icon: 'success',
+    //       title: 'תודה רבה שהזמנתם מאיתנו!',
+    //       text: 'נציג מטעמנו יצור עמכם קשר לתאום ההזמנה.',
+    //       footer: 'הנך מועבר לעמוד הבית',
+    //       showConfirmButton: false,
+    //       timer: 3500
+    //     })
+    //     setInterval(function () { window.location.pathname = "/"; }, 3600);
+    //   },
+    //   onError: err => {
+    //     console.log("error occured:", err)
+    //   }
+    // }
+    // ).render(this.paypalElement.nativeElement);
 
     this.title.setTitle(`הזמנת תמר מג'הול איכותי | התמר | תמר מג'הול מבקעת הירדן`);
     this.meta.addTags([

@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SwiperModule } from 'swiper/angular';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { HomeInfoComponent } from './components/home-info/home-info.component';
 
 
 
@@ -44,6 +45,7 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
     HomeLogosComponent,
     AboutComponent,
     PrivacyPolicyComponent,
+    HomeInfoComponent,
   ],
   imports: [
     BrowserModule,
