@@ -1,0 +1,55 @@
+<div class="bg-light mb-2 cart_details" *ngIf="clicked" data-aos="fade-left" data-aos-duration="1000">
+
+
+
+    <div class="row no-gutters cart-card" style="text-align: center;">
+
+        <div>
+            <button type="button" class="btn" (click)="openCart()" style="position: absolute; left:0;top:0;"><i
+                    class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-header pt-3">עגלת הקניות שלך</div>
+
+        <table class="table table-striped p-2" style="border-radius: 10%;"
+            *ngIf="cart['actionsObserver']['_value'].payload">
+            <thead>
+                <tr>
+                    <th scope="col">סוג תמר</th>
+                    <th scope="col">כמות</th>
+                    <th scope="col">מחיר</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of cart | async">
+                    <td>{{product.name}}</td>
+                    <td>{{product.qnt}}</td>
+                    <td>{{product.price*product.qnt}}</td>
+                    <td><i class="far fa-times-circle" (click)="removeFromCart(product.id)"></i></td>
+                </tr>
+                <hr style="width:50%; margin: auto;" />
+            </tbody>
+            <div>
+                <!-- <hr style="width:50%; margin: auto;" /> -->
+                <div class="row no-gutters p-3" style="text-align:center; justify-content: center;">
+                    <div class="btn btn-dark paymentBtn" routerLink="/order">
+                        מעבר לתשלום</div>
+                </div>
+            </div>
+        </table>
+        <table class="table table-striped p-2" style="border-radius: 10%;"
+            *ngIf="!cart['actionsObserver']['_value'].payload">
+            <div style="font-weight: bold; font-size: 16px;">העגלה ריקה! <br />
+                זה הזמן למלא אותה.</div>
+        </table>
+
+    </div>
+
+
+
+</div>
+
+<button class="btn btn-primary pl-3" style="border-radius: 100%; height: 50px;width: 50px;" (click)="openCart()"
+    *ngIf="!clicked">
+    <i class="fas fa-shopping-cart mt-1" style="color: white; font-size: 25px;"></i>
+</button>

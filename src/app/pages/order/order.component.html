@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="form-group col-md-3 col-sm-12">
                                     <label aria-labelledby="מחיר לפי כמות" for="totalP">מחיר לפי כמות:</label>
-                                    <input type="text" name="totalP" class="form-control" id="totalP"
+                                    <input type="text" name="totalP" class="form-control" id="price-label"
                                         [value]="obj.totalPrice" disabled required>
                                 </div>
 
@@ -152,9 +152,9 @@
                                 </table>
                             </div>
                             <p class="card-text" role="text">
-                                <small class="text-muted">* מינימום כמות למשלוח הינה 3 קילו תמרים.</small> <br>
-                                <small class="text-muted">* עלות משלוח 20₪ | משלוח <b>חינם</b> בהזמנת 5 קילו תמרים
-                                    ומעלה.</small> <br>
+                                <small class="text-muted">* מינימום עלות לביצוע הזמנה הינה 110₪.</small> <br>
+                                <small class="text-muted">* עלות משלוח 20₪ | בהזמנה מעל 150₪ משלוח <b>חינם.</b>
+                                </small> <br>
                                 <small class="text-muted">* הגעת המשלוח הינה עד 10 ימי עסקים מיום ביצוע ההזמנה.</small>
                                 <br>
                                 <small class="text-muted">* לצפייה בתקנון האתר <a [routerLink]="['/privacy-policy']"

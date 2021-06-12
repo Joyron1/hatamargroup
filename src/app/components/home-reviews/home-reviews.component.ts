@@ -16,7 +16,7 @@ export class HomeReviewsComponent implements OnInit {
   public slidesNum: number;
 
   constructor(public api: ApiService) {
-    console.log("Reviews Card:", this.slides);
+    // console.log("Reviews Card:", this.slides);
   }
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class HomeReviewsComponent implements OnInit {
   }
 
   onSwiper(swiper) {
-    console.log(swiper)
+    // console.log(swiper);
   }
   onSlideChange() {
     // console.log('slide change')
@@ -41,7 +41,7 @@ export class HomeReviewsComponent implements OnInit {
   }
 
   setSlidesNumber() {
-    console.log(this.getWidth());
+    // console.log(this.getWidth());
     if (this.getWidth() > 1100)
       this.slidesNum = 4;
     else if (this.getWidth() < 1101 && this.getWidth() > 767)

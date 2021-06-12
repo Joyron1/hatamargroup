@@ -24,6 +24,7 @@
     "@fortawesome/angular-fontawesome": "^0.7.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@ngrx/store": "^12.0.0",
     "@types/jquery": "^3.5.5",
     "accessibility": "^3.0.13",
     "angular-fontawesome": "^1.0.0",

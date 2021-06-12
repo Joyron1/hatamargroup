@@ -1,5 +1,6 @@
 .navbar{
 	border-bottom: 2px solid #815b3e;
+	padding: 1em;
 	.navbar-nav{
 		margin: 0px 50px;
 	}
@@ -46,7 +47,7 @@ color: #eee;
 }
 
 
-@media (max-width:768px){
+@media (max-width:1024px){
 	.navbar{
 		.navbar-brand{
 			padding: 0px;

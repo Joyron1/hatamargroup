@@ -25,7 +25,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SwiperModule } from 'swiper/angular';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { HomeInfoComponent } from './components/home-info/home-info.component';
+import { CartComponent } from './components/cart/cart.component';
 
+import { StoreModule } from '@ngrx/store';
+import { reducer } from './reducers/cart.reducer';
 
 
 @NgModule({
@@ -46,6 +49,7 @@ import { HomeInfoComponent } from './components/home-info/home-info.component';
     AboutComponent,
     PrivacyPolicyComponent,
     HomeInfoComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,10 @@ import { HomeInfoComponent } from './components/home-info/home-info.component';
     HttpClientModule,
     GoogleMapsModule,
     FontAwesomeModule,
-    SwiperModule
+    SwiperModule,
+    StoreModule.forRoot({
+      cart: reducer
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

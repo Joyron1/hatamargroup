@@ -1,5 +1,6 @@
 <div class="row no-gutters home-cards">
-    <div class="card" *ngFor="let card of homeCards" tabindex="0" aria-label="כרטיסיית מידע">
+    <div class="card" *ngFor="let card of homeCards" tabindex="0" aria-label="כרטיסיית מידע" data-aos="fade-left"
+        data-aos-duration="1500">
         <img src="{{card.img}}" class="card-image" width="100" alt={{card.title}} />
         <div class="card-header">
             <b role="text" tabindex="0">{{card.title}}</b>

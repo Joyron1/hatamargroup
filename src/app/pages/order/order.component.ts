@@ -12,7 +12,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
-  @ViewChild('paypal', { static: true }) paypalElement: ElementRef;
 
   public width = window.innerWidth;
   public dates;
@@ -30,7 +29,7 @@ export class OrderComponent implements OnInit {
     dryDate: 0,
     juicyDate: 0,
     totalQnt: 0,
-    totalPrice: null
+    totalPrice: 0
   }
 
   firstNameMSG: string;
@@ -53,49 +52,6 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-    // window.paypal.Buttons({
-    //   style: {
-    //     size: 'responsive',
-    //     layout: 'horizontal',
-    //     color: 'gold',
-    //     shape: 'rect',
-    //     // label: 'paypal',
-    //     // tagline: 'false'
-    //   },
-    //   createOrder: (data, actions) => {
-    //     return actions.order.create({
-    //       purchase_units: [
-    //         {
-    //           description: "תמר מג'הול - קבוצת התמר",
-    //           amount: {
-    //             currency_code: 'ILS',
-    //             value: this.obj.totalPrice
-    //           }
-    //         }
-    //       ]
-    //     });
-    //   },
-    //   onApprove: async (data, actions) => {
-    //     const order = await actions.order.capture();
-    //     console.log("order is:", order);
-    //     Swal.fire({
-    //       padding: '0px 0px 20px 0px',
-    //       position: 'center',
-    //       icon: 'success',
-    //       title: 'תודה רבה שהזמנתם מאיתנו!',
-    //       text: 'נציג מטעמנו יצור עמכם קשר לתאום ההזמנה.',
-    //       footer: 'הנך מועבר לעמוד הבית',
-    //       showConfirmButton: false,
-    //       timer: 3500
-    //     })
-    //     setInterval(function () { window.location.pathname = "/"; }, 3600);
-    //   },
-    //   onError: err => {
-    //     console.log("error occured:", err)
-    //   }
-    // }
-    // ).render(this.paypalElement.nativeElement);
 
     this.title.setTitle(`הזמנת תמר מג'הול איכותי | התמר | תמר מג'הול מבקעת הירדן`);
     this.meta.addTags([
@@ -234,7 +190,6 @@ export class OrderComponent implements OnInit {
       }
       else {
         this.qntMSG = "* הכמות המינימלית להזמנה הינה 3 קילו תמרים.";
-        console.log("here:", this.qntMSG)
         document.getElementById('qnt-label').style.color = "rgb(243, 65, 65)";
         document.getElementById('qnt').style.color = "rgb(243, 65, 65)";
         document.getElementById('qnt').style.border = "1px solid rgb(243, 65, 65)";
@@ -245,13 +200,13 @@ export class OrderComponent implements OnInit {
       document.getElementById('qnt-label').style.color = "rgb(243, 65, 65)";
       document.getElementById('qnt').style.border = "1px solid rgb(243, 65, 65)";
     }
+
   }
 
   async calcPrice() {
     if (this.obj.dryDate || this.obj.juicyDate) {
       let dryDatesPrice = this.obj.dryDate * 30;
       let juicyDatesPrice = this.obj.juicyDate * 40;
-      // console.log("dry dates price:", dryDatesPrice, "juicy dates price:", juicyDatesPrice);
       this.obj.totalPrice = dryDatesPrice + juicyDatesPrice;
       this.totalQnt = this.obj.dryDate + this.obj.juicyDate;
       console.log("this.obj.totalPrice:", this.obj.totalPrice, "this.totalQnt:", this.totalQnt);
@@ -260,7 +215,11 @@ export class OrderComponent implements OnInit {
       else if (this.totalQnt < 5 && this.totalQnt >= 3) {
         this.lastPrice = this.obj.totalPrice + 20 + "₪";
       }
-
+    }
+    else if (!this.obj.dryDate && !this.obj.juicyDate) {
+      this.obj.totalPrice = 0;
+      this.obj.totalQnt = 0;
+      this.lastPrice = 0;
     }
   }
 
@@ -363,7 +322,7 @@ export class OrderComponent implements OnInit {
         imageAlt: `תמר מג'הול`,
         titleText: 'משלוח עד הבית!',
         html:
-          'משלוח ללא עלות בהזמנת <b>5 ק"ג</b>. ' +
+          'משלוח ללא עלות בהזמנה של מעל <b>150₪</b>. ' +
           '<br> ' +
           '<small>ניתן לשלב בין סוגי התמרים!</small>',
         cancelButtonText: 'חזרה להזמנה',

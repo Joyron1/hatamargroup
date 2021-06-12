@@ -103,7 +103,15 @@ export class ApiService {
 
   constructor(public http: HttpClient) { }
 
-  validatePhone = (phone) => { // רגקס לבדיקת תקינות מייל
+
+  scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
+
+  validatePhone = (phone) => { // רגקס לבדיקת תקינות נייד
     let regex = /^[(]{0,1}[0-9]{3}[)]{0,1}[-\s\.]{0,1}[0-9]{3}[-\s\.]{0,1}[0-9]{4}$/;
     return regex.test(phone);
   }

@@ -9,28 +9,46 @@
 
     <!-- CARDS -->
     <div class="row no-gutters pricing">
-        <div class="card" *ngFor="let card of products" tabindex="0">
-            <img src="{{card.img}}" class="card-image" alt={{card.title}} />
+        <div class="card" *ngFor="let product of products" tabindex="0" data-aos="zoom-in" data-aos-duration="1500">
+            <img src="{{product.img}}" class="card-image" alt={{product.title}} />
             <div class="card-header">
-                <b>{{card.title}}</b>
+                <b>{{product.title}}</b>
             </div>
             <div class="card-body">
-                <p>{{card.priceTxt}}<br>
-                    <!-- <small>{{card.delivery}}</small> -->
-                </p>
+                <span class="my-1">{{product.priceTxt}} </span>
 
-                <small><button role="button" aria-label="ביצוע הזמנה" tabindex="0" type="button"
-                        class="btn order-btn my-2 col-12" routerLink="/order">ביצוע
-                        הזמנה</button></small>
-                <div *ngIf="card.id === 0">
-                    <span role="dialog" aria-label="מידע נוסף" tabindex="0" class="info-btn col-12" data-toggle="modal"
-                        data-target="#exampleModal0" (click)="passTitle(card.title)"><u>מידע
-                            נוסף</u></span>
+
+                <!-- <button role="button" aria-label="ביצוע הזמנה" tabindex="0" type="button"
+                    class="btn order-btn my-1 col-12" routerLink="/order">ביצוע
+                    הזמנה</button> -->
+
+                <div class="row no-gutters my-2" *ngIf="product.id === 0">
+                    <input class="col-5" type="number" style="text-align: center;direction: ltr;" min="0"
+                        [(ngModel)]="juicy_qnt">
+                    <button class="btn btn-outline-secondary col-7" role="button" aria-labelledby="הוסף קילוגרם אחד"
+                        type="button" (click)="addToCart(product)">הוספה<i
+                            class="fas fa-shopping-cart mr-2"></i></button>
                 </div>
-                <div *ngIf="card.id === 1">
+                <div class="row no-gutters my-2" *ngIf="product.id === 1">
+                    <input class="col-5" type="number" style="text-align: center;direction: ltr;" min="0"
+                        [(ngModel)]="dry_qnt">
+                    <button class="btn btn-outline-secondary col-7" role="button" aria-labelledby="הוסף קילוגרם אחד"
+                        type="button" (click)="addToCart(product)">הוספה<i
+                            class="fas fa-shopping-cart mr-2"></i></button>
+                </div>
+
+
+                <div *ngIf="product.id === 0">
                     <span role="dialog" aria-label="מידע נוסף" tabindex="0" class="info-btn col-12" data-toggle="modal"
-                        data-target="#exampleModal1" (click)="passTitle(card.title)"><u>מידע
-                            נוסף</u></span>
+                        data-target="#exampleModal0" (click)="passTitle(product.title)"><u>מידע
+                            נוסף</u>
+                    </span>
+                </div>
+                <div *ngIf="product.id === 1">
+                    <span role="dialog" aria-label="מידע נוסף" tabindex="0" class="info-btn col-12" data-toggle="modal"
+                        data-target="#exampleModal1" (click)="passTitle(product.title)"><u>מידע
+                            נוסף</u>
+                    </span>
                 </div>
             </div>
         </div>
@@ -64,8 +82,8 @@
             </div>
 
             <div class="modal-footer">
-                <button role="button" aria-label="ביצוע הזמנה" type="button" class="btn modal-btn" data-dismiss="modal"
-                    routerLink="/order">להזמנה</button>
+                <!-- <button role="button" aria-label="ביצוע הזמנה" type="button" class="btn modal-btn" data-dismiss="modal"
+                    routerLink="/order">להזמנה</button> -->
                 <button role="button" aria-label="סגור חלון" type="button" class="btn btn-secondary"
                     data-dismiss="modal">סגור</button>
             </div>
@@ -97,8 +115,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button role="button" aria-label="ביצוע הזמנה" type="button" class="btn modal-btn" data-dismiss="modal"
-                    routerLink="/order">להזמנה</button>
+                <!-- <button role="button" aria-label="ביצוע הזמנה" type="button" class="btn modal-btn" data-dismiss="modal"
+                    routerLink="/order">להזמנה</button> -->
                 <button role="button" aria-label="סגור חלון" type="button" class="btn btn-secondary"
                     data-dismiss="modal">סגור</button>
             </div>

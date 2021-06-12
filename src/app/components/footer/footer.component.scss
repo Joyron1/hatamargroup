@@ -1,88 +1,56 @@
+
+
 .footer{
-    text-align: center;
-    background-color: #a78860;
-    color:white;
-    border-top: 2px solid rgba(0, 0, 0, 0.589);
-    position: relative;
-    #tree-img{
-      opacity: 0.2;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: auto;
-      height: 100%;
-    }
-    h1{ 
-      font-size: 25px;
-      letter-spacing: 2px;
-    }
-    .location{
-       a, fa-icon{
-        color:white;
-         font-size: 14px;
+  color: white;
+  position: relative;
+  background-color: #694e3a;
+  #tree-img{
+          opacity: 0.2;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: auto;
+          height: 100%;
         }
-    }
-
-    .links{
-        ul {
-          list-style-type: none;
-        }
-        li a{
-          opacity: 0.7;
-          color:white;
-          transition: color .2s;
-          &:hover{
-            cursor: pointer;
-            text-decoration:none;
-            opacity: 1;
-            // color:rgb(16, 141, 243);
-            }
-        }
-    }  
-  
     .socialMedia{
-        width: 30px;
-        margin-right: 10px;
-        // border-radius: 100%;
-        opacity: 0.7;
-        // background-color: white;
-        &:hover{
-            opacity: 1;
-            transform: scale(1.2);
-            transition: transform 0.4s ease;
-        }
-      } 
-      .copyright {
-        margin-top: 10px;
-        direction: ltr;
-        p {
-          font-size: 15px;
-         padding-top: 10px;
-          border-top:1px solid rgba(255,255,255,.1);
-          fa-icon{
-            margin: 0px 3px 0px 3px;          
-          }
-          a{
-              opacity: 0.5;
-              &:hover{
-                  opacity: 1;
-                  transition: opacity 0.5s ease;
-                  text-decoration: none;
-              }
-          }
-        } 
-      }  
-}
-  
-
-@media screen and (max-width: 600px){
-  .footer{
-    text-align: center;
-    .links{
-      margin-top: 30px;
+      width: 30px;
+      margin: 0px 20px;
+      border-radius: 100%;
+      opacity: 0.5;
+      // background-color: white;
+      transition: transform .3s ;
+      &:hover{
+        opacity: 1;
+        transform: scale(1.2);
+      }
+      @media screen and(max-width:400px){
+        margin: 0px 10px;
+      }
     }
-    .about-company{
-      margin-top: 30px;
+    .site-logo{
+      width: 120px;
+      height: 120px;
+    }
+    .links{
+      a{
+        color: white;
+        opacity: 0.5;
+        text-decoration: none;
+        &:hover{
+          opacity: 1;
+        }
+      }
+    }
+    .copyright{
+      a{
+        font-size: 15px;
+        opacity: 0.5;
+        color: white;
+        margin-right: 3px;
+        text-decoration: none;
+        &:hover{
+          opacity: 1;
+        }
+      }
     }
   }
-}

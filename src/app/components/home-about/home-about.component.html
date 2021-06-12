@@ -1,8 +1,11 @@
 <div class="row no-gutters about">
 
+    <div class="col-md-12">
+        <h1 id="header" class="m-0 shadow" aria-labelledby="who are we?">מי אנחנו ? </h1>
+    </div>
+
     <!-- ABOUT TEXT -->
-    <div class="col-12 about-text">
-        <h1 id="header" aria-labelledby="who are we?">מי אנחנו ? </h1>
+    <div class="col-md-7 about-text">
         <div id="text" role="text"><b>התמר</b> הוקם על ידי שני חברי ילדות, בנים למשפחות חקלאים מבקעת הירדן במטרה לשלב את
             הפעילות העסקית של
             המשקים. <br>
@@ -15,8 +18,23 @@
             איכות גבוהה מאוד. <br>
             אנחנו מאמינים בתודעת שירות גבוהה וקשר תמידי עם הלקוח.<br>
             נמצאים כאן לשירותכם תמיד ונשמח להיות אתכם בקשר!<br>
-            <button type="button" role="button" aria-label="שלחו לנו הודעה" class="btn contact-btn"
+        </div>
+        <div class="row no-gutters buttons p-2">
+            <button type="button" role="button" aria-label="בחירת מוצרים" class="btn products-btn col-md-5"
+                routerLink="/products">לבחירת מוצרים</button>
+            <button type="button" role="button" aria-label="שלחו לנו הודעה" class="btn contact-btn col-md-5"
                 routerLink="/contact-us">שלחו לנו הודעה</button>
         </div>
+    </div>
+
+    <div class="col-md-5 about_image">
+        <img class="image" src='../../../assets/images/about-bg.jpg' />
+    </div>
+
+    <div class="col-12">
+        <app-home-logos></app-home-logos>
+    </div>
+    <div class="col-12">
+        <app-home-cards></app-home-cards>
     </div>
 </div>

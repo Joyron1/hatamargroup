@@ -25,14 +25,9 @@ export class ContactusComponent implements OnInit {
       { name: 'robots', content: 'index, follow' },
     ]);
 
-    this.scrollTop()
+    this.api.scrollToTop();
   }
 
-  scrollTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    })
-  }
+
 
 }

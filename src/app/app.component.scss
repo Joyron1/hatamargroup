@@ -3,18 +3,11 @@ main{
 }
 
 // Back to Top btn css
-.back-to-top{
+.cart_btn{
     position: fixed;
     bottom: 2%;
     right: 2%;
     z-index: 9999;
-    &:hover{
-        cursor: pointer;
-        animation-duration: 0.4s;
-        animation-name: changewidth;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-    }
 }
 
 .whatsapp{

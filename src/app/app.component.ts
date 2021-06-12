@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-// import Accessibility from '../../node_modules/accessibility/dist/accessibility.min.js';
-import { Accessibility } from 'accessibility/src/main';
+import { ApiService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -32,14 +31,13 @@ export class AppComponent {
   isFadeIn = false;
 
 
-  constructor() {
-
+  constructor(public api: ApiService) {
   }
 
   ngOnInit(): void {
-    this.accessibilityIcon();
+
     console.log(this.pathname)
-    this.backToTop();
+    this.api.scrollToTop();
 
     window.addEventListener('scroll', () => {
       let scrollY = window.scrollY;
@@ -60,50 +58,8 @@ export class AppComponent {
     })
   }
 
-  accessibilityIcon = () => {
-    let labels = {
-      menuTitle: 'אפשרויות הנגשה',
-      increaseText: 'הגדל גודל טקסט',
-      decreaseText: 'הקטן גודל טקסט',
-      increaseTextSpacing: 'הגדלת רווח טקסט',
-      decreaseTextSpacing: 'הקטנת רווח טקסט',
-      invertColors: 'היפוך צבעים',
-      grayHues: 'גוונים אפורים',
-      underlineLinks: 'הדגשת קישורים',
-      bigCursor: 'עכבר גדול',
-    };
-    let options = {
-      labels: labels,
-      modules: {
-        increaseText: true,
-        decreaseText: true,
-        invertColors: true,
-        increaseTextSpacing: true,
-        decreaseTextSpacing: true,
-        grayHues: true,
-        underlineLinks: true,
-        bigCursor: true,
-        readingGuide: false,
-        textToSpeech: false,
-        speechToText: false,
-      },
-      icon: {
-        forceFont: true,
-        position: {
-          bottom: { size: 50, units: '%' },
-          left: { size: 0, units: '%' },
-          type: 'fixed'
-        }
-      }
-    };
-    new Accessibility(options);
-  }
-
-  backToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    })
+  backToTop = () => {
+    this.api.scrollToTop();
   }
 
 }
