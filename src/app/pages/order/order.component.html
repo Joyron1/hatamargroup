@@ -1,169 +1,257 @@
-<div class="row no-gutters d-flex justify-content-center">
-    <!-- HEADER -->
-    <!-- MAIN -->
-    <div class="col-12">
-        <div class="row no-gutters">
-            <!-- FORM  -->
-            <div class="col-xl-6 col-md-12 d-flex justify-content-center order-form">
-                <div class="row no-gutters d-flex justify-content-center">
-                    <div class="col-12">
-                        <h1 class="header">עוד קצת וההזמנה שלכם בדרך!</h1>
-                        <div class="text" role="text">אנא מלאו את הפרטים הבאים על מנת להשלים את תהליך ביצוע ההזמנה!<br>
-                            לאחר שההזמנה תיקלט, צוות התמר יצור עמכם קשר בהקדם.
-                        </div>
-                    </div>
+<div class="row no-gutters m-0 p-0">
+  <!-- HEADER -->
 
-                    <div class="col-12 d-flex justify-content-center my-5">
-                        <form #orderForm="ngForm" role="form">
-                            <div class="form-row">
-                                <div class="form-group col-md-4 col-sm-12">
-                                    <label for="firstName" aria-labelledby="שם פרטי" id="firstName-label">*שם
-                                        פרטי</label>
-                                    <input type="text" name="firstName" class="form-control" id="firstName" tabindex="1"
-                                        [(ngModel)]="obj.firstName" required>
-                                </div>
-                                <div class="form-group col-md-4 col-sm-12">
-                                    <label for="lastName" aria-labelledby="שם משפחה" id="lastName-label">*שם
-                                        משפחה</label>
-                                    <input type="text" name="lastName" class="form-control" id="lastName" tabindex="1"
-                                        [(ngModel)]="obj.lastName" required>
-                                </div>
-                                <div class="form-group col-md-4 col-sm-12">
-                                    <label for="phone" aria-labelledby="מספר נייד" id="phone-label">*מספר נייד</label>
-                                    <input type="tel" name="phone" class="form-control" id="phone" minlength="10"
-                                        maxlength="10" [(ngModel)]="obj.phone" required>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-6 col-sm-12">
-                                    <label for="email" aria-labelledby="כתובת אימייל" id="email-label">*כתובת
-                                        אימייל</label>
-                                    <input type="email" name="email" class="form-control" id="email"
-                                        [(ngModel)]="obj.email" required>
-                                </div>
-                                <div class="form-group col-md-6 col-sm-12" *ngIf="width > 1028">
-                                    <label for="city" aria-labelledby="עיר מגורים" id="city-label">*עיר מגורים</label>
-                                    <select id="city" name="city" class="form-control" [(ngModel)]="obj.city" required>
-                                        <option *ngFor="let city of cities">{{city.name}}</option>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-6 col-sm-12" *ngIf="1028 > width">
-                                    <label for="city" aria-labelledby="עיר מגורים" id="city-label">*עיר מגורים</label>
-                                    <input type="text" name="city" class="form-control" id="city" [(ngModel)]="obj.city"
-                                        required>
-                                </div>
-                                <div class="form-group col-md-12 col-sm-12">
-                                    <label for="address" aria-labelledby="כתובת מלאה" id="address-label">*כתובת
-                                        מלאה</label>
-                                    <input type="text" name="fullAddress" class="form-control" id="address"
-                                        placeholder="רחוב, בניין, דירה" [(ngModel)]="obj.fullAddress" required>
-                                </div>
-                            </div>
-                            <div class="form-row ">
-                                <div class="form-group col-md-3 col-sm-12 ">
-                                    <label aria-labelledby="כמות מג'הול יבש" for="dry-date">*כמות מג'הול יבש</label>
-                                    <div class="row no-gutters bottomBtns">
-                                        <button role="button" aria-labelledby="הוסף קילוגרם אחד של מג'הול יבש"
-                                            type="button" class="qntBtn col-2" (click)="plus(1)"><i
-                                                class="fa fa-arrow-up"></i></button>
-                                        <input class="form-control col-8" type="text" [value]="obj.dryDate" disabled>
-                                        <button role="button" aria-labelledby="הורד קילוגרם אחד של מג'הול יבש"
-                                            type="button" class="qntBtn col-2" (click)="minus(1)"><i
-                                                class="fa fa-arrow-down"></i></button>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3 col-sm-12">
-                                    <label aria-labelledby="כמות מג'הול עסיסי" for="juicy-date">*כמות מג'הול
-                                        עסיסי</label>
-                                    <div class="row no-gutters bottomBtns">
-                                        <button role="button" aria-labelledby="הוסף קילוגרם אחד של מג'הול עסיסי"
-                                            type="button" class="qntBtn col-2" (click)="plus(2)"><i
-                                                class="fa fa-arrow-up"></i></button>
-                                        <input class="form-control col-8" type="text" [value]="obj.juicyDate" disabled>
-                                        <button role="button" aria-labelledby="הורד קילוגרם אחד של מג'הול עסיסי"
-                                            type="button" class="qntBtn col-2" (click)="minus(2)"><i
-                                                class="fa fa-arrow-down"></i></button>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3 col-sm-12">
-                                    <label for="qnt" aria-labelledby="סך הכל כמות" id="qnt-label">סך הכל כמות:</label>
-                                    <input type="number" name="qnt" class="form-control" id="qnt" min="3"
-                                        [value]="totalQnt" disabled required>
-                                </div>
-                                <div class="form-group col-md-3 col-sm-12">
-                                    <label aria-labelledby="מחיר לפי כמות" for="totalP">מחיר לפי כמות:</label>
-                                    <input type="text" name="totalP" class="form-control" id="price-label"
-                                        [value]="obj.totalPrice" disabled required>
-                                </div>
-
-                                <div class="form-group col-12 my-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="unchecked"
-                                            id="ppCheckbox" (click)="checkedPP()" role="checkbox"
-                                            aria-label="אישור תקנון אתר">
-                                        <span class="mr-3">אני מאשר שקראתי את <a routerLink="/privacy-policy">תקנון
-                                                האתר</a>.</span>
-                                    </div>
-                                    <small class="text-muted">* <b>תשלום יועבר באמצעות BIT במועד קבלת
-                                            המשלוח.</b></small>
-                                </div>
-                                <div class="form-group col-12 my-1">
-                                    <span *ngIf="!orderSent"><button role="button" aria-labelledby="סיום הזמנה"
-                                            tabindex="1" type="button" class="btn btn-success" (click)="onSubmit();"
-                                            style="width: 100%;">ביצוע הזמנה</button></span>
-
-                                </div>
-                                <!-- <div class="form-group col-md-6 col-12 my-1">
-                                    <div #paypal></div>
-                                </div> -->
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-                <hr *ngIf="500>width">
-            </div>
-
-            <!-- sidabar -->
-            <div class="col-xl-6 col-md-12 d-flex justify-content-center">
-                <div class="row no-gutters order-total">
-                    <div class="col-md-12">
-                        <div class="card-body">
-                            <h1 class="card-title my-4">פירוט ההזמנה</h1>
-                            <div class="card-text">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>כמות</th>
-                                            <th>עלות משלוח</th>
-                                            <th>מחיר סופי</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{{totalQnt}}</td>
-                                            <td *ngIf="totalQnt >= 5">ללא עלות</td>
-                                            <td *ngIf="5 > totalQnt && totalQnt >=3">20
-                                                ₪</td>
-                                            <td *ngIf="3 > totalQnt">0</td>
-                                            <td>{{lastPrice}}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <p class="card-text" role="text">
-                                <small class="text-muted">* מינימום עלות לביצוע הזמנה הינה 110₪.</small> <br>
-                                <small class="text-muted">* עלות משלוח 20₪ | בהזמנה מעל 150₪ משלוח <b>חינם.</b>
-                                </small> <br>
-                                <small class="text-muted">* הגעת המשלוח הינה עד 10 ימי עסקים מיום ביצוע ההזמנה.</small>
-                                <br>
-                                <small class="text-muted">* לצפייה בתקנון האתר <a [routerLink]="['/privacy-policy']"
-                                        routerLinkActive="router-link-active">לחץ כאן</a>. </small>
-                            </p>
-                        </div>
-                        <app-home-logos></app-home-logos>
-                    </div>
-                </div>
-            </div>
+  <!-- MAIN -->
+  <div class="col-12 col-lg-8">
+    <!-- FORM  -->
+    <div class="row no-gutters d-flex justify-content-center order-form">
+      <div class="col-12">
+        <h1 class="header shadow">עוד קצת וההזמנה שלכם בדרך!</h1>
+        <div class="text" role="text">
+          אנא מלאו את הפרטים הבאים על מנת להשלים את תהליך ביצוע ההזמנה!<br />
+          לאחר שההזמנה תיקלט, צוות התמר יצור עמכם קשר בהקדם.
         </div>
+      </div>
+
+      <div class="col-12 d-flex justify-content-center mt-5">
+        <form
+          #orderForm="ngForm"
+          role="form"
+        >
+          <div class="form-row">
+            <div class="form-group col-md-4 col-sm-12">
+              <input
+                id="firstName"
+                type="text"
+                name="firstName"
+                class="form-control"
+                tabindex="1"
+                [(ngModel)]="obj.firstName"
+                placeholder="*שם פרטי"
+                required
+              />
+            </div>
+            <div class="form-group col-md-4 col-sm-12">
+              <input
+                id="lastName"
+                type="text"
+                name="lastName"
+                class="form-control"
+                tabindex="1"
+                [(ngModel)]="obj.lastName"
+                placeholder="*שם משפחה"
+                required
+              />
+            </div>
+            <div class="form-group col-md-4 col-sm-12">
+              <input
+                id="phone"
+                type="tel"
+                name="phone"
+                class="form-control"
+                minlength="10"
+                maxlength="10"
+                [(ngModel)]="obj.phone"
+                placeholder="מספר נייד"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6 col-sm-12">
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="כתובת אימייל"
+                class="form-control"
+                [(ngModel)]="obj.email"
+                required
+              />
+            </div>
+            <div class="form-group col-md-6 col-sm-12" *ngIf="width > 1028">
+              <select
+                id="city"
+                name="city"
+                class="form-control"
+                [(ngModel)]="obj.city"
+                required
+              >
+                <option selected disabled [(ngModel)]="disabledOption">
+                  {{ disabledOption }}
+                </option>
+                <option *ngFor="let city of cities">{{ city.name }}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6 col-sm-12" *ngIf="1028 > width">
+              <input
+                id="city"
+                type="text"
+                name="city"
+                class="form-control"
+                [(ngModel)]="obj.city"
+                placeholder="עיר מגורים..."
+                required
+              />
+            </div>
+            <div class="form-group col-md-12 col-sm-12">
+              <input
+                id="address"
+                type="text"
+                name="fullAddress"
+                class="form-control"
+                placeholder="כתובת מלאה (רחוב, בניין, דירה)"
+                [(ngModel)]="obj.fullAddress"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-4 col-sm-6">
+              <label aria-labelledby="כמות מג'הול יבש(קילוגרם)" for="dry-date"
+                >*כמות מג'הול יבש (קילוגרם)</label
+              >
+              <div class="bottomBtns">
+                <input
+                  id="qnt-dry"
+                  class="form-control"
+                  name="dryDate"
+                  type="number"
+                  [(ngModel)]="obj.dryDate"
+                  min="0"
+                  (change)="calcPrice()"
+                />
+              </div>
+            </div>
+            <div class="form-group col-md-4 col-sm-6">
+              <label
+                aria-labelledby="כמות מג'הול עסיסי(קילוגרם)"
+                for="juicy-date"
+                >*כמות מג'הול עסיסי (קילוגרם)</label
+              >
+              <div class="bottomBtns">
+                <input
+                  id="qnt-juicy"
+                  class="form-control"
+                  type="number"
+                  name="juicyDate"
+                  [(ngModel)]="obj.juicyDate"
+                  min="0"
+                  (change)="calcPrice()"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
+
+  <!-- Order Info -->
+  <div class="order-info col-lg-4 justify-content-center">
+    <div class="order-total row m-0">
+      <div class="col-12">
+        <div class="card-body">
+          <h1 class="card-title mb-4">פירוט ההזמנה</h1>
+          <div class="card-text">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>שם המוצר</th>
+                  <th>כמות (ק"ג)</th>
+                  <th>עלות (ק"ג)</th>
+                  <th>מחיר סופי</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>מג'הול יבש</td>
+                  <td>{{ obj.dryDate }}</td>
+                  <td>30₪</td>
+                  <td>{{ obj.dryDate * 30 }}₪</td>
+                </tr>
+                <tr>
+                  <td>מג'הול עסיסי</td>
+                  <td>{{ obj.juicyDate }}</td>
+                  <td>40₪</td>
+                  <td>{{ obj.juicyDate * 40 }}₪</td>
+                </tr>
+                <tr style="border: none">
+                  <td style="border: none"></td>
+                  <td style="border: none"></td>
+                  <td style="border: none"></td>
+                  <td>
+                    {{ lastPrice }}<br />
+                    <small *ngIf="this.totalQnt < 5 && this.totalQnt >= 3" style="color: rgb(168, 28, 28)">כולל משלוח</small>
+                    <small *ngIf="totalQnt >= 5" style="color: rgb(23, 156, 23)">משלוח חינם</small>
+                    <!-- <small *ngIf="lastPrice >= 30 && lastPrice < 150" style="color: rgb(168, 28, 28)">כולל משלוח</small>
+                    <small *ngIf="lastPrice >= 150" style="color: rgb(23, 156, 23)">משלוח חינם</small> -->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="form-group col-12 my-3">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value="unchecked"
+                id="ppCheckbox"
+                (click)="checkedPP()"
+                role="checkbox"
+                aria-label="אישור תקנון אתר"
+              />
+              <span class="mr-3"
+                >אני מאשר שקראתי את
+                <a routerLink="/privacy-policy">תקנון האתר</a>.</span
+              >
+            </div>
+            <small class="text-muted"
+              >*
+              <b>תשלום יועבר באמצעות BIT או מזומן במועד קבלת המשלוח.</b></small
+            >
+          </div>
+
+          <div class="row m-0">
+            <div class="form-group col-12 my-1">
+              <span>
+                <button role="button" aria-labelledby="סיום הזמנה" tabindex="1" type="button" class="btn btn-success" 
+                (click)="onSubmit()" style="width: 100%">
+                  סיום הזמנה
+                </button>
+                </span>
+            </div>
+            <div class="form-group col-12">
+              <p class="card-text" role="text">
+                <small class="text-muted">* עלות משלוח הינה 20₪ </small>
+                <br />
+                <small class="text-muted">* מינימום כמות להזמנה הינה 3 קילו.</small>
+                <br />
+                <small class="text-muted">* משלוח חינם בהזמנת 5 קילו ומעלה.</small>
+                <br />
+                <small class="text-muted">* הגעת המשלוח הינה עד 10 ימי עסקים מיום ביצוע ההזמנה.</small>
+              </p>
+            </div>
+            <!-- <div class="form-group col-md-8 col-sm-12">
+              <p class="card-text" role="text">
+                <small class="text-muted">* עלות משלוח הינה 20₪ </small>
+                <br />
+                <small class="text-muted">* מינימום עלות לביצוע הזמנה הינה 110₪.</small>
+                <br />
+                <small class="text-muted">* משלוח חינם בהזמנה מעל 150₪</small>
+                <br />
+                <small class="text-muted">* הגעת המשלוח הינה עד 10 ימי עסקים מיום ביצוע ההזמנה.</small>
+              </p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <app-home-logos></app-home-logos>
+</div>

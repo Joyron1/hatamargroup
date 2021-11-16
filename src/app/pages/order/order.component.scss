@@ -1,93 +1,58 @@
-.order-form{
-    text-align: right;
-    border-left: 3px solid rgba(0, 0, 0, 0.055);
-    flex-direction: column;
-    .header{
-        text-align: center;
-        color: #815b3e;
-        font-size: 50px;
-        font-weight: 600;
-        padding: 20px;
-        margin: 0;
+.order-form {
+  text-align: right;
+  border-left: 3px solid rgba(0, 0, 0, 0.055);
+  flex-direction: column;
+  .header {
+    background-color: #d2b48c;
+    color: #815b3e;
+    font-size: 40px;
+    font-weight: 600;
+    padding: 15px;
+    text-align: center;
+  }
+  .text {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  form {
+    padding: 0px 40px;
+    input,
+    select {
+      margin: 10px 0px;
     }
-    .text{
-        font-size: 1.1em;
-        text-align: center;
+    .form-control {
+      border-top: none !important;
+      border-right: none !important;
+      border-left: none !important;
     }
-    form{
-        padding: 0px 40px;
-        label{
-            font-size: 13px;
-        }
-        .bottomBtns{
-            justify-content: center;
-            input{
-                text-align: center;
-            }
-            .qntBtn{
-            // border-radius: 10px;
-                border: none;
-                outline: none;
-                font-size: 15px;
-                width: auto;
-                border: 0.5px solid rgba(0, 0, 0, 0.301);
-                z-index: 1;
-                text-decoration: none;
-                &:hover{
-                    border: 0.5px solid  rgb(56, 129, 240);
-                }
-                i{
-                    color: rgb(56, 129, 240);
-                }
-            }
-        }
-        
-    }
+  }
 }
 
-.order-total{
-    text-align: right; 
-    height: 100%; 
-    width: 100%;
-    display: flex;
-    .card-title{
-        font-size: 3em;
-        font-weight: bold;
-        text-align: center;
-    }
-    .table{
-        font-size: 15px;
-    }
-}
+.order-info {
+  text-align: right;
+  height: 100%;
+  max-width: 100%;
+  margin: 0px auto;
 
-@media(max-width:1200px){
-    .order-form{
-        border-left: none;
-        .header{
-            font-size: 40px;
-        }
+  // display: flex;
+  .card-title {
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+  }
+  .table {
+    font-size: 15px;
+    border-bottom: none;
+    border-right: none;
+    align-items: center;
+    @media (max-width: 450px) {
+      font-size: 13px;
     }
-}
-
-@media (max-width:500px){
-    .order-form{
-        border-left: none;
-        .header{
-            font-size: 35px;
-        }
-        form{
-            padding: 0px 10px;
-        }
+    small {
+      font-size: 9px;
+      font-weight: 700;
     }
-    .order-total{
-        padding: 0px;
-        width: 100%;
-        // .order-img{
-        //     padding: 30px;
-        //     display: flex;;
-        //     justify-content: center;
-        //     max-width: 100%;
-        //     max-height: 400px;
-        // }
-    }
+  }
 }

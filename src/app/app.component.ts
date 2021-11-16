@@ -35,8 +35,6 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-
-    console.log(this.pathname)
     this.api.scrollToTop();
 
     window.addEventListener('scroll', () => {

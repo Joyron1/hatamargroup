@@ -126,7 +126,129 @@ export class ApiService {
     this.nameWithNum = regex.test(t);
     return regex.test(t);
     // console.log(regex.test(t));
+  }
 
+  validateForm(obj) {
+    // console.log("here")
+
+    // FIRST NAME VALIDATION
+    if (obj.firstName) {
+      this.validateName(obj.firstName);
+      if (this.nameWithNum === true && 2 > obj.firstName.length) {
+        document.getElementById('firstName').style.color = "red";
+        document.getElementById('firstName').style.border = "red";
+      }
+      else {
+        document.getElementById('firstName').style.color = "rgb(53, 187, 0)";
+        document.getElementById('firstName').style.border = "1px solid rgb(53, 187, 0)";
+      }
+    }
+    else {
+      if (!obj.firstName)
+        // console.log("no first name inserted", obj.firstName)
+        document.getElementById('firstName').style.border = "1px solid red";
+      document.getElementById('firstName').style.color = "red";
+    }
+
+    // LAST NAME VALIDATION
+    if (obj.lastName) {
+      this.validateName(obj.lastName);
+      if (this.nameWithNum === true && 2 > obj.lastName.length) {
+        document.getElementById('lastName').style.color = "red";
+        document.getElementById('lastName').style.border = "red";
+      }
+      else {
+        document.getElementById('lastName').style.color = "rgb(53, 187, 0)";
+        document.getElementById('lastName').style.border = "1px solid rgb(53, 187, 0)";
+      }
+    }
+    else {
+      if (!obj.firstName)
+        // console.log("no last name inserted", obj.lastName)
+        document.getElementById('lastName').style.color = "red";
+      document.getElementById('lastName').style.border = "1px solid red";
+    }
+
+    // PHONE NUMBER VALIDATION
+    if (obj.phone) {
+      if (obj.phone.length === 10 && this.validatePhone(obj.phone)) {
+        document.getElementById('phone').style.color = "rgb(53, 187, 0)";
+        document.getElementById('phone').style.border = "1px solid rgb(53, 187, 0)";
+      }
+      else {
+        document.getElementById('phone').style.color = "red";
+        document.getElementById('phone').style.border = "1px solid red";
+      }
+    }
+    else {
+      document.getElementById('phone').style.color = "red";
+      document.getElementById('phone').style.border = "1px solid red";
+    }
+
+    // EMAIL VALIDATION
+    if (obj.email) {
+      // console.log(this.validateEmail(obj.email))
+      if (this.validateEmail(obj.email) === true) {
+        document.getElementById('email').style.color = "rgb(53, 187, 0)";
+        document.getElementById('email').style.border = "1px solid rgb(53, 187, 0)";
+      }
+      else {
+        document.getElementById('email').style.color = "red";
+        document.getElementById('email').style.border = "1px solid red";
+      }
+    }
+    else {
+      document.getElementById('email').style.color = "red";
+      document.getElementById('email').style.border = "1px solid red";
+    }
+
+    // CITY VALIDATION
+    if (obj.city) {
+      document.getElementById('city').style.color = "rgb(53, 187, 0)";
+      document.getElementById('city').style.border = "1px solid rgb(53, 187, 0)";
+    }
+    else {
+      document.getElementById('city').style.color = "red";
+      document.getElementById('city').style.border = "1px solid red";
+    }
+
+    // ADDRESS VALIDATION
+    if (obj.fullAddress) {
+      if (obj.fullAddress.length > 5) {
+        document.getElementById('address').style.color = "rgb(53, 187, 0)";
+        document.getElementById('address').style.border = "1px solid rgb(53, 187, 0)";
+      }
+      else {
+        document.getElementById('address').style.color = "red";
+        document.getElementById('address').style.border = "1px solid red";
+      }
+    }
+    else {
+      document.getElementById('address').style.color = "red";
+      document.getElementById('address').style.border = "1px solid red";
+    }
+
+    // DRY DATE QNT VALIDATION
+    if (obj.dryDate) {
+      // console.log(obj.dryDate);
+      document.getElementById('qnt-dry').style.color = "rgb(53, 187, 0)";
+      document.getElementById('qnt-dry').style.border = "1px solid rgb(53, 187, 0)";
+    }
+    else {
+      document.getElementById('qnt-dry').style.color = "red";
+      document.getElementById('qnt-dry').style.border = "1px solid red";
+    }
+
+    // JUICY DATE QNT VALIDATION
+    if (obj.juicyDate) {
+      // console.log(obj.juicyDate);
+      document.getElementById('qnt-juicy').style.color = "rgb(53, 187, 0)";
+      document.getElementById('qnt-juicy').style.border = "1px solid rgb(53, 187, 0)";
+    }
+    else {
+      document.getElementById('qnt-juicy').style.color = "red";
+      document.getElementById('qnt-juicy').style.border = "1px solid red";
+    }
   }
 
   insertOrder(obj): Promise<Order> { // פונקציה להכנסת הזמנה חדשה

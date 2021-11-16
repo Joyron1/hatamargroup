@@ -18,11 +18,11 @@
                 <span class="my-1">{{product.priceTxt}} </span>
 
 
-                <!-- <button role="button" aria-label="ביצוע הזמנה" tabindex="0" type="button"
+                <button role="button" aria-label="ביצוע הזמנה" tabindex="0" type="button"
                     class="btn order-btn my-1 col-12" routerLink="/order">ביצוע
-                    הזמנה</button> -->
+                    הזמנה</button>
 
-                <div class="row no-gutters my-2" *ngIf="product.id === 0">
+                <!-- <div class="row no-gutters my-2" *ngIf="product.id === 0">
                     <input class="col-5" type="number" style="text-align: center;direction: ltr;" min="0"
                         [(ngModel)]="juicy_qnt">
                     <button class="btn btn-outline-secondary col-7" role="button" aria-labelledby="הוסף קילוגרם אחד"
@@ -35,7 +35,7 @@
                     <button class="btn btn-outline-secondary col-7" role="button" aria-labelledby="הוסף קילוגרם אחד"
                         type="button" (click)="addToCart(product)">הוספה<i
                             class="fas fa-shopping-cart mr-2"></i></button>
-                </div>
+                </div> -->
 
 
                 <div *ngIf="product.id === 0">
@@ -62,7 +62,6 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <!-- <h5 class="modal-title" id="exampleModalLabel">מג'הול עסיסי גדול</h5> -->
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -82,8 +81,8 @@
             </div>
 
             <div class="modal-footer">
-                <!-- <button role="button" aria-label="ביצוע הזמנה" type="button" class="btn modal-btn" data-dismiss="modal"
-                    routerLink="/order">להזמנה</button> -->
+                <button role="button" aria-label="ביצוע הזמנה" type="button" class="btn modal-btn" data-dismiss="modal"
+                    routerLink="/order">להזמנה</button>
                 <button role="button" aria-label="סגור חלון" type="button" class="btn btn-secondary"
                     data-dismiss="modal">סגור</button>
             </div>
@@ -97,7 +96,6 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <!-- <h5 class="modal-title" id="exampleModalLabel">מג'הול יבש פרמיום</h5> -->
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -115,8 +113,8 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <!-- <button role="button" aria-label="ביצוע הזמנה" type="button" class="btn modal-btn" data-dismiss="modal"
-                    routerLink="/order">להזמנה</button> -->
+                <button role="button" aria-label="ביצוע הזמנה" type="button" class="btn modal-btn" data-dismiss="modal"
+                    routerLink="/order">להזמנה</button>
                 <button role="button" aria-label="סגור חלון" type="button" class="btn btn-secondary"
                     data-dismiss="modal">סגור</button>
             </div>
@@ -124,64 +122,3 @@
     </div>
 </div>
 
-
-
-<!-- BOTH PRODUCTS MODAL -->
-<!-- COMPUTER - IPAD PRO -->
-<!-- <div class="modal fade" id="both-products-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-    *ngIf="width > 770">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content p-3 text-light" style="background-color: rgb(197, 112, 0); text-align: center;">
-            <button class="btn both-close-btn" data-dismiss="modal" aria-label="Close">
-                <fa-icon [icon]="close"></fa-icon>
-            </button>
-            <div class="my-3">
-                <h3>לא בטוחים איזה תמר בא לכם יותר?</h3>
-            </div>
-            <hr style="background-color: white; width: 100px; display: flex; margin: auto;">
-            <p class="my-3">רוצים לשלב את שני סוגי התמרים שלנו בהזמנה הבאה שלכם?<br>
-                ניתן לבצע הזמנה משולבת באמצעות הזמנה טלפונית. <br>
-                ביצוע הזמנה <b>בפחות מדקה!</b></p>
-            <hr style="background-color: white; width: 100px; display: flex; margin: auto;">
-            <div class="my-3" style="margin: auto;">
-                <a href="tel:0509175030" class="ml-2"><button class="btn btn-success">
-                        <fa-icon [icon]="call" class="ml-2"></fa-icon><span>חייגו אלינו</span>
-                    </button></a>
-                <a href={{this.whatsapp}} target="_blank" title="whatapp" class="mr-2"><button class="btn btn-success">
-                        <fa-icon [icon]="call" class="ml-2"></fa-icon><span>הודעה לוואצאפ</span>
-                    </button></a>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<!-- IPAD - MOBILE -->
-<!-- <div class="modal fade" id="both-products-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-    *ngIf="770 > width">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content p-3 text-light" style="background-color: rgb(197, 112, 0); text-align: center;">
-            <button class="btn both-close-btn" data-dismiss="modal" aria-label="Close">
-                <fa-icon [icon]="close"></fa-icon>
-            </button>
-            <div class="my-3">
-                <h3 style="font-size:35px;">לא בטוחים איזה תמר בא לכם יותר?</h3>
-            </div>
-            <hr style="background-color: white; width: 100px; display: flex; margin: auto;">
-            <p class="my-3" style="font-size:20px;">רוצים לשלב את שני סוגי התמרים שלנו בהזמנה הבאה שלכם?<br>
-                ניתן לבצע הזמנה משולבת באמצעות הזמנה טלפונית. <br>
-                ביצוע הזמנה <b>בפחות מדקה!</b></p>
-            <hr style="background-color: white; width: 100px; display: flex; margin: auto;">
-            <div class="mt-3" style="margin: auto;">
-                <a href="tel:0509175030"><button class="btn btn-success">
-                        <fa-icon [icon]="call" class="ml-2"></fa-icon><span>חייגו אלינו</span>
-                    </button></a>
-            </div>
-            <div class="my-3" style="margin: auto;">
-                <a href={{this.whatsapp}} target="_blank" title="whatapp"><button class="btn btn-success">
-                        <fa-icon [icon]="call" class="ml-2"></fa-icon><span>הודעה לוואצאפ</span>
-                    </button></a>
-            </div>
-
-        </div>
-    </div>
-</div> -->
